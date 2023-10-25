@@ -57,6 +57,23 @@ void ft_blue_board(void* param)
 	}
 }
 
+void	ft_hook_red(void *param)
+{
+	t_fractal	*fractal = param;
+	mlx_t		*mlx = fractal->mlx;
+	mlx_image_t	*red = fractal->red;
+
+	if (mlx_is_key_down(mlx, MLX_KEY_ESCAPE))
+		mlx_close_window(mlx);
+	if (mlx_is_key_down(mlx, MLX_KEY_UP))
+		red->instances[0].y -= 5;
+	if (mlx_is_key_down(mlx, MLX_KEY_DOWN))
+		red->instances[0].y += 5;
+	if (mlx_is_key_down(mlx, MLX_KEY_LEFT))
+		red->instances[0].x -= 5;
+	if (mlx_is_key_down(mlx, MLX_KEY_RIGHT))
+		red->instances[0].x += 5;
+}
 void	ft_hook_blue(void *param)
 {
 	t_fractal	*fractal = param;
@@ -103,13 +120,13 @@ int32_t main(int32_t argc, const char* argv[])
 		puts(mlx_strerror(mlx_errno));
 		return(EXIT_FAILURE);
 	}
-	if (mlx_image_to_window(mlx, red, 100, 100) == -1)
+	if (mlx_image_to_window(mlx, red, 0, 0) == -1)
 	{
 		mlx_close_window(mlx);
 		puts(mlx_strerror(mlx_errno));
 		return(EXIT_FAILURE);
 	}
-	if (mlx_image_to_window(mlx, blue, 0, 0) == -1)
+	if (mlx_image_to_window(mlx, blue, 200, 200) == -1)
 	{
 		mlx_close_window(mlx);
 		puts(mlx_strerror(mlx_errno));
@@ -121,8 +138,8 @@ int32_t main(int32_t argc, const char* argv[])
 	fractal.blue = blue;
 	mlx_loop_hook(mlx, ft_blue_board, blue);
 	mlx_loop_hook(mlx, ft_red_board, red);
-	//mlx_loop_hook(mlx, ft_hook, mlx);
 	mlx_loop_hook(mlx, ft_hook_blue, &fractal);
+	mlx_loop_hook(mlx, ft_hook_red, &fractal);
 
 	mlx_loop(mlx);
 	mlx_terminate(mlx);
