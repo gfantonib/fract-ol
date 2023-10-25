@@ -6,7 +6,6 @@
 typedef struct s_fractal
 {
 	mlx_t		*mlx;
-	mlx_image_t	*blue;
 	mlx_image_t	*red;
 }		t_fractal;
 
