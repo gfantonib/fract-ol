@@ -21,7 +21,7 @@ void ft_artist(void* param)
 	t_fractal	*fractal;
 
 	fractal = param;
-	for (int32_t i = 0; i < fractal->canvas->width; ++i)
+	for (int32_t x = 0; x < fractal->canvas->width; ++x)
 	{
 		for (int32_t y = 0; y < fractal->canvas->height; ++y)
 		{
@@ -31,7 +31,7 @@ void ft_artist(void* param)
 				 0x00, // B
 				 0xFF  // A
 			);
-			mlx_put_pixel(fractal->canvas, i, y, color);
+			mlx_put_pixel(fractal->canvas, x, y, color);
 		}
 	}
 }
@@ -74,7 +74,7 @@ int32_t main(int32_t argc, const char* argv[])
 		puts(mlx_strerror(mlx_errno));
 		return(EXIT_FAILURE);
 	}
-	if (mlx_image_to_window(mlx, fractal.canvas, (SIZE - SIZE) / 2, (SIZE - SIZE) / 2) == -1)
+	if (mlx_image_to_window(mlx, fractal.canvas, 0, 0) == -1)
 	{
 		mlx_close_window(mlx);
 		puts(mlx_strerror(mlx_errno));
