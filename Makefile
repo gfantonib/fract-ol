@@ -31,6 +31,6 @@ clean:
 fclean: clean
 	@rm -rf $(NAME)
 
-re: clean all
+re: fclean all
 
-.PHONY: all, clean, fclean, re, libmlx
+.PHONY: all clean fclean re libmlx
