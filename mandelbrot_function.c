@@ -23,7 +23,7 @@ void	ft_maldelbrot_function(t_complex *z, t_complex *c)
 	printf("Z1 = (%f, %f)\n", z->real, z->i);
 
 	n = 0;
-	while (n < 100)
+	while (n < 10)
 	{
 		//z = z + c;
 		printf("Z%d = Z%d + c\n", n + 2, n + 1);
@@ -43,8 +43,8 @@ int	main(void)
 	z.real = 0;
 	z.i = 0;
 
-	c.real = 3;
-	c.i = 2;
+	c.real = -1;
+	c.i = 0;
 
 	ft_maldelbrot_function(&z, &c);
 	return (0);
