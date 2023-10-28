@@ -2,6 +2,7 @@
 
 void	mandelbrot_init(t_fractal *fractal)
 {
+	fractal->iter_max = 100;
 	fractal->f = ft_mandelbrot;
 	fractal->rmax = +2.0;
 	fractal->rmin = -2.0;
@@ -17,3 +18,19 @@ void	ft_trans(t_complex *c, t_fractal *fractal, int32_t x, int32_t y)
 	c->real = (x / fractal->x_zoom) + fractal->rmin;
 	c->i = ((-1.0) * (y / fractal->y_zoom)) + fractal->imax;
 }
+
+uint32_t	ft_bernstein_poly(uint32_t n, uint32_t iter_max)
+{
+	double		t;
+	int32_t		color;
+
+	t = 1.0 * n / iter_max;
+	color = ft_pixel(
+			255 * 15 * (1 - t) * (1 - t) * t * t,
+			10 * 9 * (1 - t) * t * t * t,
+			10 * 8.5 * (1 - t) * (1 - t) * (1 - t) * t,
+			255);
+	return (color);
+}
+
+

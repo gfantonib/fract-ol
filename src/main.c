@@ -3,7 +3,6 @@
 // See README in the root project for more information.
 // -----------------------------------------------------------------------------
 
-#include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
 #include "../inc/fractol.h"
@@ -27,7 +26,7 @@ uint32_t	ft_mandelbrot(t_fractal *fractal, uint32_t x, uint32_t y)
 	z.i = 0;
 	ft_trans(&c, fractal, x, y);
 	n = 0;
-	while (n < 50)
+	while (n < fractal->iter_max)
 	{
 		//z = z + c;
 		//printf("n = %d: (%f, %f)\n", n, z.real, z.i);
@@ -38,10 +37,10 @@ uint32_t	ft_mandelbrot(t_fractal *fractal, uint32_t x, uint32_t y)
 			break;
 		n++;
 	}
-	if (n == 50)
+	if (n == fractal->iter_max)
 		color = ft_pixel(0x00, 0x00, 0x00, 0xFF);
 	else 
-		color = ft_pixel(0xFF, 0xFF, 0xFF, 0xFF);
+		color = ft_bernstein_poly(n, fractal->iter_max);
 	return (color);
 }
 
