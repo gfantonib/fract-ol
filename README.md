@@ -1,5 +1,9 @@
 # fract-ol
-<img class="aligncenter size-large wp-image-3831 img-responsive" src="https://www2.ufjf.br/fractalize/wp-content/uploads/sites/229/2021/03/I1P3-e1620060325694-768x405.jpg" alt="Benoît B. Mandelbrot" width="1024" height="513">
+<img class="aligncenter size-large wp-image-3831 img-responsive" 
+src="https://www2.ufjf.br/fractalize/wp-content/uploads/sites/229/2021/03/I1P3-e1620060325694-768x405.jpg" 
+title="Benoît B. Mandelbrot" 
+width="1024" 
+height="513">
 
 ## References
 ### fractol: beautiful fractals using the minilibX in C (mandelbrot and julia set, no bonus)
