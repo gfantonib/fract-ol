@@ -1,16 +1,24 @@
-NAME	:= Game
-CFLAGS	:= -Ofast #-Wextra -Wall -Werror -Wunreachable-code 
+NAME	:= fractol
+CFLAGS	:= -Ofast -g #-Wextra -Wall -Werror -Wunreachable-code 
 LIBMLX	:= ./lib/MLX42
 
 HEADERS	:= -I ./include -I $(LIBMLX)/include
 LIBS	:= $(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -lm
 SRCS	:= \
 	   ./src/main.c \
-	   ./utils/utils.c \
+	   ./src/utils.c \
+	   ./src/inits.c \
+	   ./src/sets.c \
+	   ./src/libft.c \
+	   ./src/hooks.c \
 		
 OBJS	:= \
 	   ./src/main.o \
 	   ./src/utils.o \
+	   ./src/inits.o \
+	   ./src/sets.o \
+	   ./src/libft.o \
+	   ./src/hooks.o \
 
 
 all: libmlx $(NAME)

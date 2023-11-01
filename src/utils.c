@@ -1,22 +1,9 @@
 #include "../inc/fractol.h"
 
-void	mandelbrot_init(t_fractal *fractal)
+void		ft_trans(t_complex *c, t_fractal *fractal, uint32_t w, uint32_t h)
 {
-	fractal->iter_max = 25;
-	fractal->f = ft_mandelbrot;
-	fractal->rmax = +2.0;
-	fractal->rmin = -2.0;
-	fractal->imax = +2.0;
-	fractal->imin = -2.0;
-	fractal->x_zoom = SIZE / (fractal->rmax - fractal->rmin);
-	fractal->y_zoom = SIZE / (fractal->imax - fractal->imin);
-}
-
-
-void	ft_trans(t_complex *c, t_fractal *fractal, int32_t x, int32_t y)
-{
-	c->real = (x / fractal->x_zoom) + fractal->rmin;
-	c->i = ((-1.0) * (y / fractal->y_zoom)) + fractal->imax;
+	c->real = (+1.0) * fractal->a * w + fractal->b.real;
+	c->i = (-1.0) * fractal->a * h + fractal->b.i;
 }
 
 uint32_t	ft_bernstein_poly(uint32_t n, uint32_t iter_max)
@@ -32,6 +19,12 @@ uint32_t	ft_bernstein_poly(uint32_t n, uint32_t iter_max)
 			255);
 	return (color);
 }
+
+int32_t ft_pixel(int32_t r, int32_t g, int32_t b, int32_t a)
+{
+    return (r << 24 | g << 16 | b << 8 | a);
+}
+
 
 
 
