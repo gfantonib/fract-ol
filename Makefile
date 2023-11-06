@@ -5,20 +5,20 @@ LIBMLX	:= ./lib/MLX42
 HEADERS	:= -I ./include -I $(LIBMLX)/include
 LIBS	:= $(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -lm
 SRCS	:= \
-	   ./src/main.c \
-	   ./src/utils.c \
-	   ./src/inits.c \
-	   ./src/sets.c \
-	   ./src/libft.c \
-	   ./src/hooks.c \
+	   ./sources/main.c \
+	   ./sources/utils.c \
+	   ./sources/inits.c \
+	   ./sources/sets.c \
+	   ./sources/libft.c \
+	   ./sources/hooks.c \
 		
 OBJS	:= \
-	   ./src/main.o \
-	   ./src/utils.o \
-	   ./src/inits.o \
-	   ./src/sets.o \
-	   ./src/libft.o \
-	   ./src/hooks.o \
+	   ./sources/main.o \
+	   ./sources/utils.o \
+	   ./sources/inits.o \
+	   ./sources/sets.o \
+	   ./sources/libft.o \
+	   ./sources/hooks.o \
 
 
 all: libmlx $(NAME)

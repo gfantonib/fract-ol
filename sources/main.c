@@ -3,7 +3,7 @@
 // See README in the root project for more information.
 // -----------------------------------------------------------------------------
 
-#include "../inc/fractol.h"
+#include "../includes/fractol.h"
 
 void ft_artist(void* param)
 {
@@ -65,6 +65,8 @@ int32_t main(int32_t argc, const char **argv)
 		fractal.canvas = canvas;
 		mlx_loop_hook(mlx, ft_artist, &fractal);
 		mlx_loop_hook(mlx, ft_joystick, &fractal);
+		mlx_scroll_hook(mlx, ft_zoom, &fractal);
+
 		mlx_loop(mlx);
 		mlx_terminate(mlx);
 		return (EXIT_SUCCESS);

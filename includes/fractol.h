@@ -8,6 +8,13 @@
 #include <stdbool.h>
 #define SIZE 800
 
+typedef struct s_pixel
+{
+	int32_t	w;
+	int32_t	h;
+	uint32_t color;
+}	t_pixel;
+
 typedef struct s_complex
 {
 
@@ -36,7 +43,8 @@ void		ft_trans(t_complex *c, t_fractal *fractal, uint32_t w, uint32_t h);
 uint32_t	ft_mandelbrot(t_fractal *fractal, t_complex *c);
 uint32_t	ft_bernstein_poly(uint32_t n, uint32_t iter_max);
 int32_t 	ft_pixel(int32_t r, int32_t g, int32_t b, int32_t a);
-void	ft_joystick(void *param);
+void		ft_joystick(void *param);
+void		ft_zoom(double xdelta, double ydelta, void *param);
 
 # endif
 

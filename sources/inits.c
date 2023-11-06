@@ -1,4 +1,4 @@
-#include "../inc/fractol.h"
+#include "../includes/fractol.h"
 
 void	mandelbrot_init(t_fractal  *fractal, mlx_t *mlx, mlx_image_t *canvas)
 {

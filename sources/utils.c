@@ -1,4 +1,4 @@
-#include "../inc/fractol.h"
+#include "../includes/fractol.h"
 
 void		ft_trans(t_complex *c, t_fractal *fractal, uint32_t w, uint32_t h)
 {
