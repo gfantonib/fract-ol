@@ -1,24 +1,24 @@
 NAME	:= fractol
 CFLAGS	:= -Ofast -g #-Wextra -Wall -Werror -Wunreachable-code 
-LIBMLX	:= ./lib/MLX42
+LIBMLX	:= ./MLX42
 
-HEADERS	:= -I ./include -I $(LIBMLX)/include
+HEADERS	:= -I $(LIBMLX)/include
 LIBS	:= $(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -lm
 SRCS	:= \
-	   ./sources/main.c \
-	   ./sources/utils.c \
-	   ./sources/inits.c \
-	   ./sources/sets.c \
-	   ./sources/libft.c \
-	   ./sources/hooks.c \
+	   ./main.c \
+	   ./utils.c \
+	   ./inits.c \
+	   ./sets.c \
+	   ./libft.c \
+	   ./hooks.c \
 		
 OBJS	:= \
-	   ./sources/main.o \
-	   ./sources/utils.o \
-	   ./sources/inits.o \
-	   ./sources/sets.o \
-	   ./sources/libft.o \
-	   ./sources/hooks.o \
+	   ./main.o \
+	   ./utils.o \
+	   ./inits.o \
+	   ./sets.o \
+	   ./libft.o \
+	   ./hooks.o \
 
 
 all: libmlx $(NAME)

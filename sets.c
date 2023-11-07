@@ -1,4 +1,4 @@
-#include "../includes/fractol.h"
+#include "./fractol.h"
 
 uint32_t	ft_mandelbrot(t_fractal *fractal, t_complex *c)
 {
