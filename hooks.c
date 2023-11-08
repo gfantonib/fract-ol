@@ -4,8 +4,8 @@
 void	ft_zoom(double xdelta, double ydelta, void *param)
 {
 	t_fractal	*fractal;
+	t_complex	dist;
 	t_complex	c;
-	t_distance	d;
 	int32_t		w;
 	int32_t		h;
 
@@ -13,21 +13,21 @@ void	ft_zoom(double xdelta, double ydelta, void *param)
 	fractal = param;
 	mlx_get_mouse_pos(fractal->mlx, &w, &h);
 	ft_trans(&c, fractal, w, h);
-	d.x = c.real - fractal->b.real;
-	d.y =  fractal->b.i - c.i;
+	dist.real = c.real - fractal->limit.real;
+	dist.i =  fractal->limit.i - c.i;
 	if (ydelta > 0)
 	{
 		fractal->axis_len *= 0.9;
-		fractal->b.real += d.x / 10;
-		fractal->b.i -= d.y /10;
+		fractal->limit.real += dist.real / 10;
+		fractal->limit.i -= dist.i /10;
 	}
 	else if (ydelta < 0)
 	{
 		fractal->axis_len *= 1.1;
-		fractal->b.real -= d.x / 10;
-		fractal->b.i += d.y / 10;
+		fractal->limit.real -= dist.real / 10;
+		fractal->limit.i += dist.i / 10;
 	}
-	fractal->a = fractal->axis_len / SIZE;
+	fractal->trans = fractal->axis_len / SIZE;
 }
 
 //void	ft_joystick(void *param)
