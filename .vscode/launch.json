@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/nfs/homes/gfantoni/programing/42_fract-ol/src",
-      "program": "/nfs/homes/gfantoni/programing/42_fract-ol/src/build/Debug/outDebug",
+      "cwd": "/nfs/homes/gfantoni/programing/42_fract-ol",
+      "program": "/nfs/homes/gfantoni/programing/42_fract-ol/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

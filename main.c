@@ -38,6 +38,8 @@ int32_t main(int32_t argc, const char **argv)
 
 		if (!ft_strncmp(argv[1], "mandelbrot", 10))
 			fractal.init = mandelbrot_init;
+		else if (!ft_strncmp(argv[1], "julia", 10))
+			fractal.init = julia_init;
 		else
 		{
 			 puts("usage: ./fractol 'set'");
