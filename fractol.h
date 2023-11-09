@@ -38,7 +38,7 @@ typedef struct s_fractal
 
 }	t_fractal;
 
-
+int			ft_check_error(int argc, const char **argv, t_fractal *fractal);
 int     	ft_strncmp(const char *s1, const char *s2, size_t n);
 void		mandelbrot_init(t_fractal  *fractal, mlx_t *mlx, mlx_image_t *canvas);
 void		julia_init(t_fractal  *fractal, mlx_t *mlx, mlx_image_t *canvas);

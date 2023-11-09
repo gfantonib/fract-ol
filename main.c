@@ -27,66 +27,35 @@ int32_t main(int32_t argc, const char **argv)
 	mlx_t		*mlx;
 	mlx_image_t	*canvas;
 	t_fractal	fractal;
+	int			error;
 
-	if (argc == 2 || argc == 3)
+	error = ft_check_error(argc, argv, &fractal);
+	if (error)
+		return(EXIT_FAILURE);
+	if (!(mlx = mlx_init(SIZE, SIZE, "fractal.name", true)))
 	{
-		if (argc == 2)
-		{
-			if (!ft_strncmp(argv[1], "mandelbrot", 10))
-				fractal.init = mandelbrot_init;
-			else
-			{
-				puts("usage: ./fractol mandelbrot OR ./fractal julia 'a-e'");
-				return (EXIT_FAILURE);
-			}
-		}
-		else if (argc == 3)
-		{
-			if (!ft_strncmp(argv[1], "julia", 10) && 
-				argv[2][0] >= 'a' && argv[2][0] <= 'e')
-			{
-				fractal.julia_c = argv[2][0];
-				fractal.init = julia_init;
-
-			}
-			else
-			{
-				puts("usage: ./fractol mandelbrot OR ./fractal julia 'a-e'");
-				return (EXIT_FAILURE);
-			}
-		}
-
-
-		if (!(mlx = mlx_init(SIZE, SIZE, "fractal.name", true)))
-		{
-			puts(mlx_strerror(mlx_errno));
-			return(EXIT_FAILURE);
-		}
-		if (!(canvas = mlx_new_image(mlx, SIZE, SIZE)))
-		{
-			mlx_close_window(mlx);
-			puts(mlx_strerror(mlx_errno));
-			return(EXIT_FAILURE);
-		}
-		if (mlx_image_to_window(mlx, canvas, 0, 0) == -1)
-		{
-			mlx_close_window(mlx);
-			puts(mlx_strerror(mlx_errno));
-			return(EXIT_FAILURE);
-		}
-		fractal.init(&fractal, mlx, canvas);
-		fractal.mlx = mlx;
-		fractal.canvas = canvas;
-		mlx_loop_hook(mlx, ft_artist, &fractal);
-		//mlx_loop_hook(mlx, ft_joystick, &fractal);
-		mlx_scroll_hook(mlx, ft_zoom, &fractal);
-		mlx_loop(mlx);
-		mlx_terminate(mlx);
-		return (EXIT_SUCCESS);
+		puts(mlx_strerror(mlx_errno));
+		return(EXIT_FAILURE);
 	}
-	else
+	if (!(canvas = mlx_new_image(mlx, SIZE, SIZE)))
 	{
-		puts("usage: ./fractol mandelbrot OR ./fractal julia 'a-e'");
-		return (EXIT_FAILURE);
+		mlx_close_window(mlx);
+		puts(mlx_strerror(mlx_errno));
+		return(EXIT_FAILURE);
 	}
+	if (mlx_image_to_window(mlx, canvas, 0, 0) == -1)
+	{
+		mlx_close_window(mlx);
+		puts(mlx_strerror(mlx_errno));
+		return(EXIT_FAILURE);
+	}
+	fractal.init(&fractal, mlx, canvas);
+	fractal.mlx = mlx;
+	fractal.canvas = canvas;
+	mlx_loop_hook(mlx, ft_artist, &fractal);
+	//mlx_loop_hook(mlx, ft_joystick, &fractal);
+	mlx_scroll_hook(mlx, ft_zoom, &fractal);
+	mlx_loop(mlx);
+	mlx_terminate(mlx);
+	return (EXIT_SUCCESS);
 }
