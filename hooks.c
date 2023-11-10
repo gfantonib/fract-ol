@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 12:37:45 by gfantoni          #+#    #+#             */
-/*   Updated: 2023/11/10 12:58:47 by gfantoni         ###   ########.fr       */
+/*   Updated: 2023/11/10 13:22:42 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ void	ft_zoom(double xdelta, double ydelta, void *param)
 	t_fractal	*fractal;
 	t_complex	dist;
 	t_complex	c;
-	int32_t		w;
-	int32_t		h;
+	int32_t		width;
+	int32_t		height;
 
 	fractal = param;
-	mlx_get_mouse_pos(fractal->mlx, &w, &h);
-	ft_trans(&c, fractal, w, h);
+	mlx_get_mouse_pos(fractal->mlx, &width, &height);
+	ft_trans(&c, fractal, width, height);
 	dist.real = c.real - fractal->limit.real;
 	dist.i = fractal->limit.i - c.i;
 	if (ydelta > 0)

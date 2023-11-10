@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 12:26:50 by gfantoni          #+#    #+#             */
-/*   Updated: 2023/11/10 13:18:24 by gfantoni         ###   ########.fr       */
+/*   Updated: 2023/11/10 14:06:37 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int32_t	main(int32_t argc, const char **argv)
 	error = ft_check_error(argc, argv, &fractal);
 	if (error)
 	{
-		puts("usage: ./fractol mandelbrot OR ./fractal julia 'a-e'");
+		puts("usage: ./fractol mandelbrot OR ./fractal julia {a..d}");
 		return (EXIT_FAILURE);
 	}
 	error = ft_render(mlx, canvas, &fractal, argv[1]);

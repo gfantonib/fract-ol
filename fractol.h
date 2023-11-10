@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 12:27:44 by gfantoni          #+#    #+#             */
-/*   Updated: 2023/11/10 13:15:26 by gfantoni         ###   ########.fr       */
+/*   Updated: 2023/11/10 14:06:26 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ typedef struct s_fractal
 	mlx_image_t	*canvas;
 	void		(*init)(struct s_fractal *fractal, 
 			mlx_t *mlx, mlx_image_t *canvas);
-	uint32_t	(*f)(struct s_fractal *fractal, t_complex *c);
+	uint32_t		(*f)(struct s_fractal *fractal, t_complex *c);
 	uint32_t	iter_max;
 	double		axis_len;
 	double		trans;
