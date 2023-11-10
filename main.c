@@ -5,20 +5,44 @@
 
 #include "./fractol.h"
 
+// void ft_artist(void* param)
+// {
+// 	t_fractal	*fractal;
+// 	t_complex	c;
+// 	uint32_t w = 0;
+// 	uint32_t h = 0;
+
+// 	fractal = param;
+	
+// 	for (uint32_t w = 0; w < fractal->canvas->width; ++w)
+// 	{
+// 		for (uint32_t h = 0; h < fractal->canvas->height; ++h)
+// 		{
+// 			ft_trans(&c, fractal, w, h);
+// 			uint32_t color = fractal->f(fractal, &c);
+// 			mlx_put_pixel(fractal->canvas, w, h, color);
+// 		}
+// 	}
+// }
+
 void ft_artist(void* param)
 {
 	t_fractal	*fractal;
 	t_complex	c;
 
+	uint32_t w = 0;
 	fractal = param;
-	for (uint32_t w = 0; w < fractal->canvas->width; ++w)
+	while (w < fractal->canvas->width)
 	{
-		for (uint32_t h = 0; h < fractal->canvas->height; ++h)
+		uint32_t h = 0;
+		while(h < fractal->canvas->height)
 		{
 			ft_trans(&c, fractal, w, h);
 			uint32_t color = fractal->f(fractal, &c);
 			mlx_put_pixel(fractal->canvas, w, h, color);
+			h++;
 		}
+		w++;
 	}
 }
 
