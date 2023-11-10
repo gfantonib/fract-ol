@@ -40,6 +40,7 @@ typedef struct s_fractal
 
 int			ft_check_error(int argc, const char **argv, t_fractal *fractal);
 int     	ft_strncmp(const char *s1, const char *s2, size_t n);
+int			ft_render(mlx_t *mlx, mlx_image_t *canvas, t_fractal *fractal, const char *name);
 void		mandelbrot_init(t_fractal  *fractal, mlx_t *mlx, mlx_image_t *canvas);
 void		julia_init(t_fractal  *fractal, mlx_t *mlx, mlx_image_t *canvas);
 void		ft_set_julia_const(t_fractal *fractal);

@@ -19,11 +19,6 @@ void		ft_set_julia_const(t_fractal *fractal)
 	}
 	else if (fractal->julia_c == 'd')
 	{
-		fractal->julia_r = 0.0;
-		fractal->julia_i = 0.8;
-	}
-	else if (fractal->julia_c == 'e')
-	{
 		fractal->julia_r = -0.4;
 		fractal->julia_i = -0.59;
 	}
@@ -42,9 +37,9 @@ uint32_t	ft_bernstein_poly(uint32_t n, uint32_t iter_max)
 
 	t = 1.0 * n / iter_max;
 	color = ft_pixel(
-			255 * 8.5 * t * (1 - t) * (1 - t) * (1 - t),
-			255 * 15 * t * t * (1 - t) * (1 - t),
-			255 * 9 * t * t * t * (1 - t),
+			255 * 9.0 * t * (1 - t) * (1 - t) * (1 - t),
+			255 * 15.0 * t * t * (1 - t) * (1 - t),
+			255 * 11.0 * t * t * t * (1 - t),
 			255);
 	return (color);
 }

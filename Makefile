@@ -11,7 +11,8 @@ SRCS	:= \
 	   ./sets.c \
 	   ./libft.c \
 	   ./hooks.c \
-	   ./ft_check_error.c \
+	   ./check_error.c \
+	   ./render.c \
 		
 OBJS	:= \
 	   ./main.o \
@@ -20,7 +21,8 @@ OBJS	:= \
 	   ./sets.o \
 	   ./libft.o \
 	   ./hooks.o \
-	   ./ft_check_error.o \
+	   ./check_error.o \
+	   ./render.o \
 
 
 all: libmlx $(NAME)
