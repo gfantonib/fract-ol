@@ -1,7 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check_error.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/10 12:33:08 by gfantoni          #+#    #+#             */
+/*   Updated: 2023/11/10 13:18:11 by gfantoni         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "./fractol.h"
 
 int	ft_check_error(int argc, const char **argv, t_fractal *fractal)
-{	
+{
 	if (argc == 2)
 	{
 		if (!ft_strncmp(argv[1], "mandelbrot", 10))
@@ -10,10 +22,7 @@ int	ft_check_error(int argc, const char **argv, t_fractal *fractal)
 			return (0);
 		}
 		else
-		{
-			puts("usage: ./fractol mandelbrot OR ./fractal julia 'a-e'");
 			return (1);
-		}
 	}
 	else if (argc == 3)
 	{
@@ -25,11 +34,7 @@ int	ft_check_error(int argc, const char **argv, t_fractal *fractal)
 			return (0);
 		}
 		else
-		{
-			puts("usage: ./fractol mandelbrot OR ./fractal julia 'a-e'");
 			return (1);
-		}
 	}
-	puts("usage: ./fractol mandelbrot OR ./fractal julia 'a-e'");
 	return (1);
 }

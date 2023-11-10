@@ -9,7 +9,6 @@ SRCS	:= \
 	   ./utils.c \
 	   ./inits.c \
 	   ./sets.c \
-	   ./libft.c \
 	   ./hooks.c \
 	   ./check_error.c \
 	   ./render.c \
@@ -19,7 +18,6 @@ OBJS	:= \
 	   ./utils.o \
 	   ./inits.o \
 	   ./sets.o \
-	   ./libft.o \
 	   ./hooks.o \
 	   ./check_error.o \
 	   ./render.o \

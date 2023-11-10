@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/10 12:36:52 by gfantoni          #+#    #+#             */
+/*   Updated: 2023/11/10 12:38:43 by gfantoni         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "./fractol.h"
 
-void		ft_set_julia_const(t_fractal *fractal)
+void	ft_set_julia_const(t_fractal *fractal)
 {
 	if (fractal->julia_c == 'a')
 	{
@@ -24,7 +36,7 @@ void		ft_set_julia_const(t_fractal *fractal)
 	}
 }
 
-void		ft_trans(t_complex *c, t_fractal *fractal, uint32_t w, uint32_t h)
+void	ft_trans(t_complex *c, t_fractal *fractal, uint32_t w, uint32_t h)
 {
 	c->real = (+1.0) * fractal->trans * w + fractal->limit.real;
 	c->i = (-1.0) * fractal->trans * h + fractal->limit.i;
@@ -44,11 +56,21 @@ uint32_t	ft_bernstein_poly(uint32_t n, uint32_t iter_max)
 	return (color);
 }
 
-int32_t ft_pixel(int32_t r, int32_t g, int32_t b, int32_t a)
+int32_t	ft_pixel(int32_t r, int32_t g, int32_t b, int32_t a)
 {
-    return (r << 24 | g << 16 | b << 8 | a);
+	return (r << 24 | g << 16 | b << 8 | a);
 }
 
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
+{
+	unsigned int	z;
 
-
-
+	z = 0;
+	while ((s1[z] != '\0' || s2[z] != '\0') && n--)
+	{
+		if (s1[z] != s2[z])
+			return ((unsigned char)s1[z] - (unsigned char)s2[z]);
+		z++;
+	}
+	return (0);
+}

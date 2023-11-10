@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sets.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/10 12:35:25 by gfantoni          #+#    #+#             */
+/*   Updated: 2023/11/10 13:01:07 by gfantoni         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "./fractol.h"
 
 uint32_t	ft_mandelbrot(t_fractal *fractal, t_complex *c)
 {
-	t_complex	z;
-	uint32_t	color;
-	double		aux;
+	t_complex		z;
+	uint32_t		color;
+	double			aux;
 	unsigned int	n;
 
 	z.real = 0;
@@ -12,13 +24,11 @@ uint32_t	ft_mandelbrot(t_fractal *fractal, t_complex *c)
 	n = 0;
 	while (n < fractal->iter_max)
 	{
-		//z = z + c;
-		//printf("n = %d: (%f, %f)\n", n, z.real, z.i);
 		aux = z.i;
 		z.i = (2.0 * z.real * z.i) + c->i; 
 		z.real = ((z.real * z.real) - (aux * aux)) + c->real; 
 		if (((z.real * z.real) + (z.i * z.i)) > 4.0)
-			break;
+			break ;
 		n++;
 	}
 	if (n == fractal->iter_max)
@@ -28,12 +38,11 @@ uint32_t	ft_mandelbrot(t_fractal *fractal, t_complex *c)
 	return (color);
 }
 
-
 uint32_t	ft_julia(t_fractal *fractal, t_complex *pixel)
 {
-	t_complex	z;
-	uint32_t	color;
-	double		aux;
+	t_complex		z;
+	uint32_t		color;
+	double			aux;
 	unsigned int	n;
 
 	z.real = pixel->real;
@@ -41,13 +50,11 @@ uint32_t	ft_julia(t_fractal *fractal, t_complex *pixel)
 	n = 0;
 	while (n < fractal->iter_max)
 	{
-		//z = z + c;
-		//printf("n = %d: (%f, %f)\n", n, z.real, z.i);
 		aux = z.i;
 		z.i = (2.0 * z.real * z.i) + fractal->julia_i; 
 		z.real = ((z.real * z.real) - (aux * aux)) + fractal->julia_r; 
 		if (((z.real * z.real) + (z.i * z.i)) > 4.0)
-			break;
+			break ;
 		n++;
 	}
 	if (n == fractal->iter_max)
