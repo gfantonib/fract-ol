@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 12:26:50 by gfantoni          #+#    #+#             */
-/*   Updated: 2023/11/10 14:06:37 by gfantoni         ###   ########.fr       */
+/*   Updated: 2023/11/10 17:48:32 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,6 @@ void	ft_artist(void *param)
 
 int32_t	main(int32_t argc, const char **argv)
 {
-	mlx_t			*mlx;
-	mlx_image_t		*canvas;
 	t_fractal		fractal;
 	int				error;
 
@@ -49,11 +47,12 @@ int32_t	main(int32_t argc, const char **argv)
 		puts("usage: ./fractol mandelbrot OR ./fractal julia {a..d}");
 		return (EXIT_FAILURE);
 	}
-	error = ft_render(mlx, canvas, &fractal, argv[1]);
+	error = ft_render(&fractal, argv[1]);
 	if (error)
 		return (EXIT_FAILURE);
 	mlx_loop_hook(fractal.mlx, ft_artist, &fractal);
 	mlx_scroll_hook(fractal.mlx, ft_zoom, &fractal);
+	// mlx_loop_hook(mlx, ft_hook, &fractal);
 	mlx_loop(fractal.mlx);
 	mlx_terminate(fractal.mlx);
 	return (EXIT_SUCCESS);

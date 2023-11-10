@@ -6,37 +6,36 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 12:34:51 by gfantoni          #+#    #+#             */
-/*   Updated: 2023/11/10 12:53:43 by gfantoni         ###   ########.fr       */
+/*   Updated: 2023/11/10 17:45:59 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./fractol.h"
 
-int	ft_render(mlx_t *mlx, mlx_image_t *canvas, 
-t_fractal *fractal, const char *name)
+int	ft_render(t_fractal *fractal, const char *name)
 {
 	int	error;
 
-	mlx = mlx_init(SIZE, SIZE, name, true);
-	if (!mlx)
+	fractal->mlx = mlx_init(SIZE, SIZE, name, true);
+	if (!fractal->mlx)
 	{
 		puts(mlx_strerror(mlx_errno));
 		return (1);
 	}
-	canvas = mlx_new_image(mlx, SIZE, SIZE);
-	if (!canvas)
+	fractal->canvas = mlx_new_image(fractal->mlx, SIZE, SIZE);
+	if (!fractal->canvas)
 	{
-		mlx_close_window(mlx);
+		mlx_close_window(fractal->mlx);
 		puts(mlx_strerror(mlx_errno));
 		return (1);
 	}
-	error = mlx_image_to_window(mlx, canvas, 0, 0);
+	error = mlx_image_to_window(fractal->mlx, fractal->canvas, 0, 0);
 	if (error == -1)
 	{
-		mlx_close_window(mlx);
+		mlx_close_window(fractal->mlx);
 		puts(mlx_strerror(mlx_errno));
 		return (1);
 	}
-	fractal->init(fractal, mlx, canvas);
+	fractal->init(fractal, fractal->mlx, fractal->canvas);
 	return (0);
 }

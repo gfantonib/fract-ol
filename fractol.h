@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 12:27:44 by gfantoni          #+#    #+#             */
-/*   Updated: 2023/11/10 14:06:26 by gfantoni         ###   ########.fr       */
+/*   Updated: 2023/11/10 17:46:50 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,7 @@ typedef struct s_fractal
 
 int			ft_check_error(int argc, const char **argv, t_fractal *fractal);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
-int			ft_render(mlx_t *mlx, mlx_image_t *canvas, 
-				t_fractal *fractal, const char *name);
+int			ft_render(t_fractal *fractal, const char *name);
 void		mandelbrot_init(t_fractal *fractal, mlx_t *mlx, 
 				mlx_image_t *canvas);
 void		julia_init(t_fractal *fractal, mlx_t *mlx, mlx_image_t *canvas);
@@ -57,5 +56,6 @@ uint32_t	ft_julia(t_fractal *fractal, t_complex *pixel);
 uint32_t	ft_bernstein_poly(uint32_t n, uint32_t iter_max);
 int32_t		ft_pixel(int32_t r, int32_t g, int32_t b, int32_t a);
 void		ft_zoom(double xdelta, double ydelta, void *param);
+void 		ft_hook(void* param);
 
 #endif
