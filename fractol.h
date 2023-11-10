@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 12:27:44 by gfantoni          #+#    #+#             */
-/*   Updated: 2023/11/10 17:46:50 by gfantoni         ###   ########.fr       */
+/*   Updated: 2023/11/10 19:32:49 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,6 @@ uint32_t	ft_julia(t_fractal *fractal, t_complex *pixel);
 uint32_t	ft_bernstein_poly(uint32_t n, uint32_t iter_max);
 int32_t		ft_pixel(int32_t r, int32_t g, int32_t b, int32_t a);
 void		ft_zoom(double xdelta, double ydelta, void *param);
-void 		ft_hook(void* param);
+void 		ft_joystick(void *param);
 
 #endif

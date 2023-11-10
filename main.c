@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 12:26:50 by gfantoni          #+#    #+#             */
-/*   Updated: 2023/11/10 17:48:32 by gfantoni         ###   ########.fr       */
+/*   Updated: 2023/11/10 19:33:04 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int32_t	main(int32_t argc, const char **argv)
 		return (EXIT_FAILURE);
 	mlx_loop_hook(fractal.mlx, ft_artist, &fractal);
 	mlx_scroll_hook(fractal.mlx, ft_zoom, &fractal);
-	// mlx_loop_hook(mlx, ft_hook, &fractal);
+	mlx_loop_hook(fractal.mlx, ft_joystick, &fractal);
 	mlx_loop(fractal.mlx);
 	mlx_terminate(fractal.mlx);
 	return (EXIT_SUCCESS);

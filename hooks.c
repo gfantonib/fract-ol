@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 12:37:45 by gfantoni          #+#    #+#             */
-/*   Updated: 2023/11/10 15:56:24 by gfantoni         ###   ########.fr       */
+/*   Updated: 2023/11/10 19:32:36 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,20 +41,19 @@ void	ft_zoom(double xdelta, double ydelta, void *param)
 	fractal->trans = fractal->axis_len / SIZE;
 }
 
-// void ft_hook(void* param)
-// {
-// 	mlx_t* mlx = param;
-// 	t_fractal fractal;
+void ft_joystick(void *param)
+{
+	t_fractal *fractal;
 
-// 	fractal = param;
-// 	if (mlx_is_key_down(mlx, MLX_KEY_ESCAPE))
-// 		mlx_close_window(mlx);
-// 	if (mlx_is_key_down(mlx, MLX_KEY_UP))
-// 		image->instances[0].y -= 5;
-// 	if (mlx_is_key_down(mlx, MLX_KEY_DOWN))
-// 		image->instances[0].y += 5;
-// 	if (mlx_is_key_down(mlx, MLX_KEY_LEFT))
-// 		image->instances[0].x -= 5;
-// 	if (mlx_is_key_down(mlx, MLX_KEY_RIGHT))
-// 		image->instances[0].x += 5;
-// }
+	fractal = param;
+	if (mlx_is_key_down(fractal->mlx, MLX_KEY_ESCAPE))
+		mlx_close_window(fractal->mlx);
+	if (mlx_is_key_down(fractal->mlx, MLX_KEY_UP))
+		fractal->canvas->instances[0].y -= 5;
+	if (mlx_is_key_down(fractal->mlx, MLX_KEY_DOWN))
+		fractal->canvas->instances[0].y += 5;
+	if (mlx_is_key_down(fractal->mlx, MLX_KEY_LEFT))
+		fractal->canvas->instances[0].x -= 5;
+	if (mlx_is_key_down(fractal->mlx, MLX_KEY_RIGHT))
+		fractal->canvas->instances[0].x += 5;
+}
