@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 12:37:45 by gfantoni          #+#    #+#             */
-/*   Updated: 2023/11/11 16:56:19 by gfantoni         ###   ########.fr       */
+/*   Updated: 2023/11/11 17:11:06 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ void	ft_zoom(double xdelta, double ydelta, void *param)
 	fractal->trans = fractal->axis_len / SIZE;
 }
 
-void ft_joystick(void *param)
+void	ft_joystick(void *param)
 {
-	t_fractal *fractal;
+	t_fractal	*fractal;
 
 	fractal = param;
 	if (mlx_is_key_down(fractal->mlx, MLX_KEY_SPACE))
@@ -57,5 +57,5 @@ void ft_joystick(void *param)
 	if (mlx_is_key_down(fractal->mlx, MLX_KEY_LEFT))
 		fractal->limit.real -= fractal->trans * STEP;
 	if (mlx_is_key_down(fractal->mlx, MLX_KEY_RIGHT))
-	fractal->limit.real += fractal->trans * STEP;
+		fractal->limit.real += fractal->trans * STEP;
 }

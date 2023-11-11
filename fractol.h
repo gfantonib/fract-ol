@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 12:27:44 by gfantoni          #+#    #+#             */
-/*   Updated: 2023/11/11 16:19:56 by gfantoni         ###   ########.fr       */
+/*   Updated: 2023/11/11 17:10:48 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,20 +35,20 @@ typedef struct s_channel
 
 typedef struct s_fractal
 {
-	const char	*name;
-	mlx_t		*mlx;
-	mlx_image_t	*canvas;
-	void		(*init)(struct s_fractal *fractal, 
+	const char			*name;
+	mlx_t				*mlx;
+	mlx_image_t			*canvas;
+	void				(*init)(struct s_fractal *fractal, 
 			mlx_t *mlx, mlx_image_t *canvas);
-	uint32_t		(*f)(struct s_fractal *fractal, t_complex *c);
-	uint32_t	iter_max;
-	double		axis_len;
-	double		trans;
-	t_complex	limit;
-	double		julia_r;
-	double		julia_i;
-	char		julia_c;
-	t_channel	ch;
+	unsigned int		(*f)(struct s_fractal *fractal, t_complex *c);
+	uint32_t			iter_max;
+	double				axis_len;
+	double				trans;
+	t_complex			limit;
+	double				julia_r;
+	double				julia_i;
+	char				julia_c;
+	t_channel			ch;
 }	t_fractal;
 
 int			ft_check_error(int argc, const char **argv, t_fractal *fractal);
@@ -64,7 +64,7 @@ uint32_t	ft_julia(t_fractal *fractal, t_complex *pixel);
 uint32_t	ft_bernstein_poly(uint32_t n, t_fractal *fractal);
 int32_t		ft_pixel(int32_t r, int32_t g, int32_t b, int32_t a);
 void		ft_zoom(double xdelta, double ydelta, void *param);
-void 		ft_joystick(void *param);
+void		ft_joystick(void *param);
 void		ft_swapp(t_fractal *fractal);
 
 #endif
