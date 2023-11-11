@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 12:31:59 by gfantoni          #+#    #+#             */
-/*   Updated: 2023/11/11 17:03:20 by gfantoni         ###   ########.fr       */
+/*   Updated: 2023/11/11 17:05:39 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,6 @@ void	julia_init(t_fractal *fractal, mlx_t *mlx, mlx_image_t *canvas)
 	fractal->canvas = canvas;
 	ft_set_julia_const(fractal);
 	fractal->ch.r = 0;
-	fractal->ch.r = 1;
-	fractal->ch.r = 2;
+	fractal->ch.g = 1;
+	fractal->ch.b = 2;
 }
