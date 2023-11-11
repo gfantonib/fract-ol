@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 12:37:45 by gfantoni          #+#    #+#             */
-/*   Updated: 2023/11/10 19:32:36 by gfantoni         ###   ########.fr       */
+/*   Updated: 2023/11/11 15:10:54 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ void ft_joystick(void *param)
 	t_fractal *fractal;
 
 	fractal = param;
+	if (mlx_is_key_down(fractal->mlx, MLX_KEY_SPACE))
+		ft_swapp(fractal);
 	if (mlx_is_key_down(fractal->mlx, MLX_KEY_ESCAPE))
 		mlx_close_window(fractal->mlx);
 	if (mlx_is_key_down(fractal->mlx, MLX_KEY_UP))

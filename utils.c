@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 12:36:52 by gfantoni          #+#    #+#             */
-/*   Updated: 2023/11/10 19:34:00 by gfantoni         ###   ########.fr       */
+/*   Updated: 2023/11/11 15:51:43 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,17 +47,19 @@ void	ft_trans(t_complex *c, t_fractal *fractal, uint32_t w, uint32_t h)
 	c->i = (-1.0) * fractal->trans * h + fractal->limit.i;
 }
 
-uint32_t	ft_bernstein_poly(uint32_t n, uint32_t iter_max)
+uint32_t	ft_bernstein_poly(uint32_t n, t_fractal *fractal)
 {
 	double		t;
 	int32_t		color;
+	int32_t		poly[3];
+	t_channel	ch;
 
-	t = 1.0 * n / iter_max;
-	color = ft_pixel(
-			255 * 9.0 * t * (1 - t) * (1 - t) * (1 - t),
-			255 * 15.0 * t * t * (1 - t) * (1 - t),
-			255 * 11.0 * t * t * t * (1 - t),
-			255);		
+	ch = fractal->ch;
+	t = 1.0 * n / fractal->iter_max;
+	poly[0] = 255 * 9.0 * t * (1 - t) * (1 - t) * (1 - t);
+	poly[1] = 255 * 15.0 * t * t * (1 - t) * (1 - t);
+	poly[2] = 255 * 11.0 * t * t * t * (1 - t);
+	color = ft_pixel(poly[ch.r], poly[ch.g], poly[ch.b], 255);	
 	return (color);
 }
 

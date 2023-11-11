@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 12:35:25 by gfantoni          #+#    #+#             */
-/*   Updated: 2023/11/10 13:01:07 by gfantoni         ###   ########.fr       */
+/*   Updated: 2023/11/11 15:49:33 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ uint32_t	ft_mandelbrot(t_fractal *fractal, t_complex *c)
 	if (n == fractal->iter_max)
 		color = ft_pixel(0x00, 0x00, 0x00, 0xFF);
 	else 
-		color = ft_bernstein_poly(n, fractal->iter_max);
+		color = ft_bernstein_poly(n, fractal);
 	return (color);
 }
 
@@ -60,6 +60,6 @@ uint32_t	ft_julia(t_fractal *fractal, t_complex *pixel)
 	if (n == fractal->iter_max)
 		color = ft_pixel(0x00, 0x00, 0x00, 0xFF);
 	else 
-		color = ft_bernstein_poly(n, fractal->iter_max);
+		color = ft_bernstein_poly(n, fractal);
 	return (color);
 }
