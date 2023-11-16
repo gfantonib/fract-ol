@@ -27,13 +27,14 @@ void ft_randomize(void* param)
 	}
 }
 
-void	ft_sierpinsky(void *param)
+void	ft_sierpinsky_medium(void *param)
 {
 	uint32_t color = ft_pixel(255, 255, 255, 255);
 
 	t_point	a;
 	t_point	b;
 	int32_t aux;
+	int32_t i = 0;
 
 	int32_t	m;
 	int32_t	y;
@@ -48,57 +49,64 @@ void	ft_sierpinsky(void *param)
 	int32_t neg_y = 1;
 	int32_t neg_x = 1;
 
-	a.x = -400;
-	a.y = -400;
+	a.x = 800;
+	a.y = 0;
 
-	b.x = +400;
-	b.y = +400;
+	b.x = 720;
+	b.y = 800;
 
 	dx = b.x - a.x;
 	dy = b.y - a.y;
 
 	m = dy / dx;
-	dis = 2 * abs(dy) - abs(dx);
 
-	del_e = 2 * abs(dy);
-	del_ne = 2 * (abs(dy) - abs(dx));
-
-	//ft_trans(&a, &b);
-	while (a.x <= b.x)
+	if (abs(dx) > abs(dy))
 	{
-		if (dis <= 0)
+		dis = (2 * abs(dy)) - abs(dx);
+		while (i < abs(dx))
 		{
-			dis = dis + del_e;
-			a.x = a.x + 1;
-			mlx_put_pixel(image, a.x + 400, -1*a.y + 400, color);
-		}
-		else
-		{
-			dis = dis + del_ne;
-			a.y = a.y + 1;
-			a.x = a.x + 1;
-			mlx_put_pixel(image, a.x + 400, -1*a.y + 400, color);
+			if (dx < 0)
+				a.x = a.x - 1;
+			else
+				a.x = a.x + 1;
+			if (dis < 0)
+				dis = dis + 2*abs(dy);
+			else
+			{
+				if (dy < 0)
+					a.y = a.y - 1;
+				else
+					a.y = a.y + 1;
+				dis = dis + 2*(abs(dy) - abs(dx));
+			}
+			i++;
+			mlx_put_pixel(image, a.x, a.y, color);
 		}
 	}
-	// else
-	// {
-	// 	while (a.y >= b.x)
-	// 	{
-	// 		if (dis <= 0)
-	// 		{
-	// 			dis = dis + del_e;
-	// 			a.x = a.x + 1;
-	// 			mlx_put_pixel(image, a.x, a.y, color);
-	// 		}
-	// 		else if (dis > 0)
-	// 		{
-	// 			dis = dis + del_ne;
-	// 			a.y = a.y - 1;
-	// 			a.x = a.x + 1;
-	// 			mlx_put_pixel(image, a.x, a.y, color);
-	// 		}
-	// 	}
-	// }
+	else
+	{
+		dis = (2 * abs(dx)) - abs(dy);
+		while (i < abs(dy))
+		{
+			if (dy < 0)
+				a.y = a.y - 1;
+			else
+				a.y = a.y + 1;
+			if (dis < 0)
+				dis = dis + 2*abs(dx);
+			else
+			{
+				if (dx < 0)
+					a.x = a.x - 1;
+				else 
+					a.x = a.x + 1;
+				dis = dis + 2*(abs(dx) - abs(dy));
+			}
+			i++;
+			mlx_put_pixel(image, a.x, a.y, color);
+		}
+		
+	}
 }
 	
 void ft_hook(void* param)
@@ -142,7 +150,7 @@ int32_t main(int32_t argc, const char* argv[])
 		return(EXIT_FAILURE);
 	}
 	
-	mlx_loop_hook(mlx, ft_sierpinsky, mlx);
+	mlx_loop_hook(mlx, ft_sierpinsky_medium, mlx);
 	mlx_loop_hook(mlx, ft_hook, mlx);
 
 	mlx_loop(mlx);
