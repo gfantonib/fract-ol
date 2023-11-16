@@ -130,14 +130,14 @@ void	ft_init(void *param)
 
 	uint32_t n = 9;
 
-	a.x = 400;
-	a.y = 0;
+	a.x = SIZE / 2;
+	a.y = 25;
 
-	b.x = 0;
-	b.y = 800;
+	b.x = 25;
+	b.y = SIZE - 25;
 
-	c.x = 800;
-	c.y = 800;
+	c.x = SIZE - 25;
+	c.y = SIZE - 25;
 
 	ft_sierpinsky(a, b, c, n);
 }
