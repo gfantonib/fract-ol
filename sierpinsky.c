@@ -38,7 +38,6 @@ void	ft_sierpinsky(void *param)
 	int32_t	m;
 	int32_t	y;
 	int32_t	dis;
-	int32_t	i;
 
 	int32_t	del_e;
 	int32_t	del_ne;
@@ -49,69 +48,59 @@ void	ft_sierpinsky(void *param)
 	int32_t neg_y = 1;
 	int32_t neg_x = 1;
 
-	a.x = 800;
-	a.y = 0;
+	a.x = -400;
+	a.y = -400;
 
-	b.x = 0;
-	b.y = 800;
+	b.x = +400;
+	b.y = +400;
 
 	dx = b.x - a.x;
 	dy = b.y - a.y;
 
 	m = dy / dx;
-	i = 0;
+	dis = 2 * abs(dy) - abs(dx);
+
 	del_e = 2 * abs(dy);
 	del_ne = 2 * (abs(dy) - abs(dx));
-	
-	if (abs(dx) > abs(dy))
-	{
-		dis = (2 * abs(dy)) - abs(dx);
-		while (i < abs(dx))
-		{
-			if (dx < 0)
-				a.x = a.x - 1;
-			else
-				a.x = a.x + 1;
-			if (dis < 0)
-				dis = dis + del_e;
-			else
-			{
-				if (dy < 0)
-					a.y = a.y - 1;
-				else
-					a.y = a.y + 1;
-				dis = dis + del_ne;
-			}
-			i++;
-			mlx_put_pixel(image, a.x, a.y, color);
-		}
-	}
-	else
-	{
-		dis = (2 * abs(dx)) - abs(dy);
-		while (i < abs(dy))
-		{
-			if (dy < 0)
-				a.y = a.y - 1;
-			else
-				a.y = a.y + 1;
-			if (dis < 0)
-				dis = dis + del_e;
-			else
-			{
-				if (dx < 0)
-					a.x = a.x - 1;
-				else 
-					a.x = a.x + 1;
-				dis = dis + del_ne;
-			}
-			i++;
-			mlx_put_pixel(image, a.x, a.y, color);
-		}
-		
-	}
-}
 
+	//ft_trans(&a, &b);
+	while (a.x <= b.x)
+	{
+		if (dis <= 0)
+		{
+			dis = dis + del_e;
+			a.x = a.x + 1;
+			mlx_put_pixel(image, a.x + 400, -1*a.y + 400, color);
+		}
+		else
+		{
+			dis = dis + del_ne;
+			a.y = a.y + 1;
+			a.x = a.x + 1;
+			mlx_put_pixel(image, a.x + 400, -1*a.y + 400, color);
+		}
+	}
+	// else
+	// {
+	// 	while (a.y >= b.x)
+	// 	{
+	// 		if (dis <= 0)
+	// 		{
+	// 			dis = dis + del_e;
+	// 			a.x = a.x + 1;
+	// 			mlx_put_pixel(image, a.x, a.y, color);
+	// 		}
+	// 		else if (dis > 0)
+	// 		{
+	// 			dis = dis + del_ne;
+	// 			a.y = a.y - 1;
+	// 			a.x = a.x + 1;
+	// 			mlx_put_pixel(image, a.x, a.y, color);
+	// 		}
+	// 	}
+	// }
+}
+	
 void ft_hook(void* param)
 {
 	mlx_t* mlx = param;
