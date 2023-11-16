@@ -6,11 +6,9 @@ HEADERS	:= -I $(LIBMLX)/include
 LIBS	:= $(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -lm
 SRCS	:= \
 	   ./sierpinsky.c \
-	   ./ft_trans.c \
 		
 OBJS	:= \
 	   ./sierpinsky.o \
-	   ./ft_trans.o \
 
 
 all: libmlx $(NAME)
