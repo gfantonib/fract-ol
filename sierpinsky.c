@@ -27,27 +27,54 @@ void ft_randomize(void* param)
 	}
 }
 
-void	ft_sierpinsky_medium(void *param)
+int	ft_middle(int x1, int x2)
+{
+	int	med;
+	med = (x1 + x2) / 2;
+	return (med);
+}
+
+void sierpinski_triangle(t_point a, t_point b, t_point c, int n)
+{
+    // Lambda function which returns the middle of two point
+    //auto Middle = [](Point A, Point B) { return Point((A.x+B.x)/2, (A.y+B.y)/2) ; };
+
+    if(n > 0)
+	{
+        t_point	ab;
+		t_point	ac;
+		t_point	bc;
+		// Draw triangle
+        //window.draw(Triangle(A,B,C).get()) ;
+        // Draw three sub-triangles in the triangle
+		ft_sierpinsky(&a, &b);
+		ft_sierpinsky(&b, &c);
+		ft_sierpinsky(&c, &a);
+
+        ab.x = ft_middle(a.x, b.x);
+		ab.y = ft_middle(a.y, b.y);
+		ac.x = ft_middle(a.x, c.x);
+		ac.y = ft_middle(a.y, c.y);
+		bc.x = ft_middle(b.x, c.x);
+		bc.y = ft_middle(b.y, c.y);
+		sierpinski_triangle(a, ab, ac, n-1);
+        sierpinski_triangle(ab, b, bc, n-1);
+        sierpinski_triangle(ac, bc, c, n-1);
+    }
+    return ; 
+}
+
+void	ft_sierpinsky(void *param)
 {
 	uint32_t color = ft_pixel(255, 255, 255, 255);
 
 	t_point	a;
 	t_point	b;
-	int32_t aux;
-	int32_t i = 0;
 
-	int32_t	m;
-	int32_t	y;
 	int32_t	dis;
-
-	int32_t	del_e;
-	int32_t	del_ne;
 
 	int32_t	dx;
 	int32_t	dy;
-
-	int32_t neg_y = 1;
-	int32_t neg_x = 1;
 
 	a.x = 800;
 	a.y = 0;
@@ -58,8 +85,7 @@ void	ft_sierpinsky_medium(void *param)
 	dx = b.x - a.x;
 	dy = b.y - a.y;
 
-	m = dy / dx;
-
+	int32_t i = 0;
 	if (abs(dx) > abs(dy))
 	{
 		dis = (2 * abs(dy)) - abs(dx);
@@ -150,7 +176,7 @@ int32_t main(int32_t argc, const char* argv[])
 		return(EXIT_FAILURE);
 	}
 	
-	mlx_loop_hook(mlx, ft_sierpinsky_medium, mlx);
+	mlx_loop_hook(mlx, ft_sierpinsky, mlx);
 	mlx_loop_hook(mlx, ft_hook, mlx);
 
 	mlx_loop(mlx);
