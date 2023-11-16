@@ -1,26 +1,16 @@
-NAME	:= fractol
+NAME	:= sierpinsky
 CFLAGS	:= -Ofast -g #-Wextra -Wall -Werror -Wunreachable-code 
 LIBMLX	:= ./MLX42
 
 HEADERS	:= -I $(LIBMLX)/include
 LIBS	:= $(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -lm
 SRCS	:= \
-	   ./main.c \
-	   ./utils.c \
-	   ./inits.c \
-	   ./sets.c \
-	   ./hooks.c \
-	   ./check_error.c \
-	   ./render.c \
+	   ./sierpinsky.c \
+	   ./ft_trans.c \
 		
 OBJS	:= \
-	   ./main.o \
-	   ./utils.o \
-	   ./inits.o \
-	   ./sets.o \
-	   ./hooks.o \
-	   ./check_error.o \
-	   ./render.o \
+	   ./sierpinsky.o \
+	   ./ft_trans.o \
 
 
 all: libmlx $(NAME)
