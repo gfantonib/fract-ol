@@ -1,16 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 12:26:50 by gfantoni          #+#    #+#             */
-/*   Updated: 2023/11/17 09:42:03 by gfantoni         ###   ########.fr       */
+/*   Updated: 2023/11/17 14:49:07 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
+
+void	ft_classic_artist(void *param)
+{
+	t_fractal	*fr;
+	t_point		a;
+	t_point		b;
+	t_point		c;
+	int			n;
+	
+	fr = param;
+	a = fr->pinsky.a;
+	b = fr->pinsky.b;
+	c = fr->pinsky.c;
+	n = fr->iter_max;
+	ft_sierpinsky(a, b, c, n, fr);
+}
 
 void	ft_artist(void *param)
 {
@@ -40,17 +56,21 @@ int32_t	main(int32_t argc, const char **argv)
 {
 	t_fractal		fractal;
 	int				error;
-
+	
 	error = ft_check_error(argc, argv, &fractal);
 	if (error)
 	{
-		puts("usage: ./fractol mandelbrot OR ./fractal julia {a..d}");
+		puts("usage: ./fractol_bonus mandelbrot OR ./fractal_bonus julia {a..d} OR ./fractal_bonus sierpinsky");
 		return (EXIT_FAILURE);
 	}
 	error = ft_render(&fractal, argv[1]);
 	if (error)
 		return (EXIT_FAILURE);
-	mlx_loop_hook(fractal.mlx, ft_artist, &fractal);
+	
+	if (!ft_strncmp(argv[1], "sierpinsky", 10))
+		mlx_loop_hook(fractal.mlx, ft_classic_artist, &fractal);
+	else
+		mlx_loop_hook(fractal.mlx, ft_artist, &fractal);
 	mlx_scroll_hook(fractal.mlx, ft_zoom, &fractal);
 	mlx_loop_hook(fractal.mlx, ft_joystick, &fractal);
 	mlx_loop(fractal.mlx);

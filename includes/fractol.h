@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 12:27:44 by gfantoni          #+#    #+#             */
-/*   Updated: 2023/11/17 09:44:04 by gfantoni         ###   ########.fr       */
+/*   Updated: 2023/11/17 13:52:50 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,19 @@
 # include <stdbool.h>
 # define SIZE 800
 # define STEP 100
+
+typedef struct	s_point
+{
+	int		x;
+	int		y;
+}	t_point;
+
+typedef struct s_sierpinsky
+{
+	t_point a;
+	t_point b;
+	t_point c;
+}		t_sierpinsky;
 
 typedef struct s_complex
 {
@@ -49,10 +62,12 @@ typedef struct s_fractal
 	double				julia_i;
 	char				julia_c;
 	t_channel			ch;
+	t_sierpinsky		pinsky;
 }	t_fractal;
 
 int			ft_check_error(int argc, const char **argv, t_fractal *fractal);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
+int			ft_strcmp(const char *s1, const char *s2);
 int			ft_render(t_fractal *fractal, const char *name);
 void		mandelbrot_init(t_fractal *fractal, mlx_t *mlx, 
 				mlx_image_t *canvas);
@@ -66,5 +81,9 @@ int32_t		ft_pixel(int32_t r, int32_t g, int32_t b, int32_t a);
 void		ft_zoom(double xdelta, double ydelta, void *param);
 void		ft_joystick(void *param);
 void		ft_swapp(t_fractal *fractal);
+
+//void		ft_init_sierpinsky(void *param);
+void		sierpinsky_init(t_fractal *fractal, mlx_t *mlx, mlx_image_t *canvas);
+void 		ft_sierpinsky(t_point a, t_point b, t_point c, int n, t_fractal *fractal);
 
 #endif

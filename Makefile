@@ -1,5 +1,5 @@
 NAME		:= fractol
-BONUS_NAME 	:= fractol_b
+BONUS_NAME 	:= fractol_bonus
 
 CFLAGS	:= -Ofast -g #-Wextra -Wall -Werror -Wunreachable-code 
 LIBMLX	:= ./libraries/MLX42
@@ -17,13 +17,14 @@ SRCS	:= \
 		./sources/render.c \
 
 BONUS_SRCS	:= \
-			./sources/main_bonus.c \
-			./sources/utils_bonus.c \
-			./sources/inits_bonus.c \
-			./sources/sets_bonus.c \
-			./sources/hooks_bonus.c \
-			./sources/check_error_bonus.c \
-			./sources/render_bonus.c \
+			./bonus_sources/main_bonus.c \
+			./bonus_sources/utils_bonus.c \
+			./bonus_sources/inits_bonus.c \
+			./bonus_sources/sets_bonus.c \
+			./bonus_sources/hooks_bonus.c \
+			./bonus_sources/check_error_bonus.c \
+			./bonus_sources/render_bonus.c \
+			./bonus_sources/sierpinsky_bonus.c \
 		
 OBJS	:= $(SRCS:%.c=%.o)
 
