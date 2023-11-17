@@ -1,5 +1,5 @@
 NAME		:= fractol
-BONUS_NAME 	:= bonus
+BONUS_NAME 	:= fractol_b
 
 CFLAGS	:= -Ofast -g #-Wextra -Wall -Werror -Wunreachable-code 
 LIBMLX	:= ./libraries/MLX42
