@@ -6,11 +6,11 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 12:33:08 by gfantoni          #+#    #+#             */
-/*   Updated: 2023/11/10 14:16:57 by gfantoni         ###   ########.fr       */
+/*   Updated: 2023/11/17 09:41:33 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./fractol.h"
+#include "../includes/fractol.h"
 
 int	ft_check_error(int argc, const char **argv, t_fractal *fractal)
 {

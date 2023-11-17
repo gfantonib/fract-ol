@@ -6,11 +6,11 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 12:31:59 by gfantoni          #+#    #+#             */
-/*   Updated: 2023/11/11 17:05:39 by gfantoni         ###   ########.fr       */
+/*   Updated: 2023/11/17 09:41:59 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./fractol.h"
+#include "../includes/fractol.h"
 
 void	mandelbrot_init(t_fractal *fractal, mlx_t *mlx, mlx_image_t *canvas)
 {

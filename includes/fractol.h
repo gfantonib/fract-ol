@@ -6,14 +6,14 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 12:27:44 by gfantoni          #+#    #+#             */
-/*   Updated: 2023/11/11 17:10:48 by gfantoni         ###   ########.fr       */
+/*   Updated: 2023/11/17 09:44:04 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# include "./MLX42/include/MLX42/MLX42.h"
+# include "../libraries/MLX42/include/MLX42/MLX42.h"
 # include <stdio.h>
 # include <stdlib.h>
 # include <stdbool.h>

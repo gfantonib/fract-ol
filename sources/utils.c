@@ -6,11 +6,11 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 12:36:52 by gfantoni          #+#    #+#             */
-/*   Updated: 2023/11/11 17:11:25 by gfantoni         ###   ########.fr       */
+/*   Updated: 2023/11/17 09:42:18 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./fractol.h"
+#include "../includes/fractol.h"
 
 void	ft_set_julia_const(t_fractal *fractal)
 {

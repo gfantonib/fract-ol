@@ -6,11 +6,12 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 12:37:45 by gfantoni          #+#    #+#             */
-/*   Updated: 2023/11/11 17:11:06 by gfantoni         ###   ########.fr       */
+/*   Updated: 2023/11/17 09:41:55 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./fractol.h"
+#include "../includes/fractol.h"
+
 #include <stdint.h>
 
 void	ft_zoom(double xdelta, double ydelta, void *param)
