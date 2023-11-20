@@ -1,7 +1,7 @@
 NAME		:= fractol
 BONUS_NAME 	:= fractol_bonus
 
-CFLAGS	:= -Ofast -g #-Wextra -Wall -Werror -Wunreachable-code 
+CFLAGS	:= -Ofast -Wextra -Wall -Werror -Wunreachable-code 
 LIBMLX	:= ./libraries/MLX42
 
 HEADERS	:= -I $(LIBMLX)/include

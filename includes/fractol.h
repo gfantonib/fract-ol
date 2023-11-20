@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 12:27:44 by gfantoni          #+#    #+#             */
-/*   Updated: 2023/11/17 13:52:50 by gfantoni         ###   ########.fr       */
+/*   Updated: 2023/11/20 14:55:47 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,6 @@ typedef struct s_fractal
 }	t_fractal;
 
 int			ft_check_error(int argc, const char **argv, t_fractal *fractal);
-int			ft_strncmp(const char *s1, const char *s2, size_t n);
 int			ft_strcmp(const char *s1, const char *s2);
 int			ft_render(t_fractal *fractal, const char *name);
 void		mandelbrot_init(t_fractal *fractal, mlx_t *mlx, 

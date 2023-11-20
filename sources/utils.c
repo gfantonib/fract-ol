@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 12:36:52 by gfantoni          #+#    #+#             */
-/*   Updated: 2023/11/17 09:42:18 by gfantoni         ###   ########.fr       */
+/*   Updated: 2023/11/20 14:54:45 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,12 +68,12 @@ int32_t	ft_pixel(int32_t r, int32_t g, int32_t b, int32_t a)
 	return (r << 24 | g << 16 | b << 8 | a);
 }
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_strcmp(const char *s1, const char *s2)
 {
 	unsigned int	z;
 
 	z = 0;
-	while ((s1[z] != '\0' || s2[z] != '\0') && n--)
+	while (s1[z] != '\0' || s2[z] != '\0')
 	{
 		if (s1[z] != s2[z])
 			return ((unsigned char)s1[z] - (unsigned char)s2[z]);
