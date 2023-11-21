@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 12:37:45 by gfantoni          #+#    #+#             */
-/*   Updated: 2023/11/21 11:06:31 by gfantoni         ###   ########.fr       */
+/*   Updated: 2023/11/21 11:25:10 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,6 @@ void ft_pinsky_zoom(double xdelta, double ydelta, void *param)
 	mlx_get_mouse_pos(fr->mlx, &width, &height);
 	if (ydelta > 0)
 	{
-		// if (fr->z < 1)
-		// 	fr->z = 1;
-		// fr->z *= 1.1;
 		fr->pinsky.a.x -= (width - fr->pinsky.a.x) / 10;
 		fr->pinsky.a.y -= (height - fr->pinsky.a.y) / 10;
 		fr->pinsky.b.x -= (width - fr->pinsky.b.x) / 10;
@@ -85,9 +82,6 @@ void ft_pinsky_zoom(double xdelta, double ydelta, void *param)
 	}
 	else if (ydelta < 0)
 	{
-		// if (fr->z > 1)
-		// 	fr->z = 1;
-		// fr->z *= 0.9;
 		fr->pinsky.a.x += (width - fr->pinsky.a.x) / 10;
 		fr->pinsky.a.y += (height - fr->pinsky.a.y) / 10;
 		fr->pinsky.b.x += (width - fr->pinsky.b.x) / 10;

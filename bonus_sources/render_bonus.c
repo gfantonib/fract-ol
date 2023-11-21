@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 12:34:51 by gfantoni          #+#    #+#             */
-/*   Updated: 2023/11/20 15:28:37 by gfantoni         ###   ########.fr       */
+/*   Updated: 2023/11/21 12:52:25 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,16 +36,5 @@ int	ft_render(t_fractal *fractal, const char *name)
 		puts(mlx_strerror(mlx_errno));
 		return (1);
 	}
-	fractal->init(fractal, fractal->mlx, fractal->canvas);
 	return (0);
-}
-
-void	ft_swapp(t_fractal *fractal)
-{
-	uint32_t	aux;
-
-	aux = fractal->ch.r;
-	fractal->ch.r = fractal->ch.g;
-	fractal->ch.g = fractal->ch.b;
-	fractal->ch.b = aux;
 }

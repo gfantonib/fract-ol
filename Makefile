@@ -1,13 +1,9 @@
 NAME		:= fractol
 BONUS_NAME 	:= fractol_bonus
 
-CFLAGS	:= -Ofast -Wextra -Wall -Werror -Wunreachable-code 
+CFLAGS	:= -Ofast -Wextra -Wall -Werror -Wunreachable-code
 LIBMLX	:= ./includes/MLX42
-
 HEADERS	:= -I $(LIBMLX)/include
-
-#BONUS_HEADER	:= -I $(LIBMLX)/include
-
 LIBS	:= $(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -lm
 
 SRCS	:= \
@@ -21,13 +17,15 @@ SRCS	:= \
 
 BONUS_SRCS	:= \
 			./bonus_sources/main_bonus.c \
-			./bonus_sources/utils_bonus.c \
+			./bonus_sources/utils_1_bonus.c \
+			./bonus_sources/utils_2_bonus.c \
 			./bonus_sources/inits_bonus.c \
 			./bonus_sources/sets_bonus.c \
 			./bonus_sources/hooks_bonus.c \
 			./bonus_sources/check_error_bonus.c \
 			./bonus_sources/render_bonus.c \
 			./bonus_sources/sierpinsky_bonus.c \
+			./bonus_sources/artists_bonus.c \
 		
 OBJS	:= $(SRCS:%.c=%.o)
 
@@ -57,6 +55,7 @@ fclean: clean
 	@rm -rf $(NAME) $(BONUS_NAME)
 
 re: fclean all
-bonus_re: fclean bonus
+
+bre: fclean bonus
 
 .PHONY: all clean fclean re libmlx

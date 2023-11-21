@@ -1,5 +1,15 @@
 #include "../includes/bonus_fractol.h"
 
+// void	ft_bresenham_horizontal(t_point a, int32_t dx, int32_t dy, int32_t dis)
+// {
+	
+// }
+
+// void	ft_bresenham_vertical(t_point a, int32_t dx, int32_t dy, int32_t dis)
+// {
+	
+// }
+
 void	ft_bresenham(t_point a, t_point b, t_fractal *fractal)
 {
 	uint32_t color = ft_pixel(255, 255, 255, 255);
@@ -82,14 +92,8 @@ t_point ft_middle(t_point a, t_point b)
 
 void ft_sierpinsky(t_point a, t_point b, t_point c, int n, t_fractal *fractal)
 {
-    // Lambda function which returns the middle of two point
-    //auto Middle = [](Point A, Point B) { return Point((A.x+B.x)/2, (A.y+B.y)/2) ; };
-
     if(n > 0)
 	{
-        // Draw triangle
-        //window.draw(Triangle(A,B,C).get()) ;
-        // Draw three sub-triangles in the triangle
 		ft_bresenham(a, b, fractal);
 		ft_bresenham(b, c, fractal);
 		ft_bresenham(c, a, fractal);
@@ -100,25 +104,3 @@ void ft_sierpinsky(t_point a, t_point b, t_point c, int n, t_fractal *fractal)
     }
     return ; 
 }
-
-// void	ft_init_sierpinsky(void *param)
-// {
-// 	t_fractal *fractal;
-// 	t_point a;
-// 	t_point b;
-// 	t_point c;
-
-// 	fractal = param;
-// 	uint32_t n = 9;
-
-// 	a.x = SIZE / 2;
-// 	a.y = 25;
-
-// 	b.x = 25;
-// 	b.y = SIZE - 25;
-
-// 	c.x = SIZE - 25;
-// 	c.y = SIZE - 25;
-
-// 	ft_sierpinsky(a, b, c, n, fractal);
-// }

@@ -6,11 +6,16 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 12:31:59 by gfantoni          #+#    #+#             */
-/*   Updated: 2023/11/21 11:03:31 by gfantoni         ###   ########.fr       */
+/*   Updated: 2023/11/21 12:55:37 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/bonus_fractol.h"
+
+void	ft_fractal_init(t_fractal *fractal)
+{
+	fractal->init(fractal, fractal->mlx, fractal->canvas);
+}
 
 void	mandelbrot_init(t_fractal *fractal, mlx_t *mlx, mlx_image_t *canvas)
 {
@@ -39,21 +44,16 @@ void	julia_init(t_fractal *fractal, mlx_t *mlx, mlx_image_t *canvas)
 	fractal->limit.i = 0.0 + fractal->axis_len / 2.0;
 	fractal->mlx = mlx;
 	fractal->canvas = canvas;
-	ft_set_julia_const(fractal);
 	fractal->ch.r = 0;
 	fractal->ch.g = 1;
 	fractal->ch.b = 2;
+	ft_set_julia_const(fractal);
 }
 
 void	sierpinsky_init(t_fractal *fractal, mlx_t *mlx, mlx_image_t *canvas)
 {
 	fractal->name = "sierpinsky";
-	//fractal->f = ft_sierpinsky;
-	fractal->iter_max = 7;
-	//fractal->axis_len = SIZE;
-	//fractal->trans = fractal->axis_len / SIZE;
-	//fractal->limit.real = 0.0;
-	//fractal->limit.i = 0.0;
+	fractal->iter_max = 13;
 	fractal->mlx = mlx;
 	fractal->canvas = canvas;
 	
@@ -65,7 +65,4 @@ void	sierpinsky_init(t_fractal *fractal, mlx_t *mlx, mlx_image_t *canvas)
 
 	fractal->pinsky.c.x = SIZE - MARGIN * SIZE;
 	fractal->pinsky.c.y = SIZE - MARGIN * SIZE;
-	// fractal->ch.r = 0;
-	// fractal->ch.g = 1;
-	// fractal->ch.b = 2;
 }
