@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 15:25:58 by gfantoni          #+#    #+#             */
-/*   Updated: 2023/11/21 16:06:41 by gfantoni         ###   ########.fr       */
+/*   Updated: 2023/11/21 20:26:32 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,10 @@ void		ft_swapp(t_fractal *fractal);
 int			ft_point_validation(t_point a);
 
 // bonus_sources/sierpinsky_bonus.c
-// void		ft_sierpinsky(t_point a, t_point b, t_point c, int n, t_fractal *fr);
+// void	ft_sierpinsky(t_point a, t_point b, t_point c, int n, t_fractal *fr);
 void		ft_sierpinsky(t_point abc[], int n, t_fractal *fr);
+
+// bonus_sources/bresenham_bonus.c
+void		ft_bresenham(t_point a, t_point b, t_fractal *fractal);
 
 #endif
