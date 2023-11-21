@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 12:28:41 by gfantoni          #+#    #+#             */
-/*   Updated: 2023/11/21 12:28:59 by gfantoni         ###   ########.fr       */
+/*   Updated: 2023/11/21 16:25:42 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,15 @@
 void	ft_classic_artist(void *param)
 {
 	t_fractal	*fr;
+	t_point		abc[3];
 	int			n;
-	
+
 	fr = param;
 	n = fr->iter_max;
-	ft_sierpinsky(fr->pinsky.a, fr->pinsky.b, fr->pinsky.c, n, fr);
+	abc[0] = fr->pinsky.a;
+	abc[1] = fr->pinsky.b;
+	abc[2] = fr->pinsky.c;
+	ft_sierpinsky(abc, n, fr);
 }
 
 void	ft_artist(void *param)

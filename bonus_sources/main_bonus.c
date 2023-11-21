@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 12:26:50 by gfantoni          #+#    #+#             */
-/*   Updated: 2023/11/21 12:48:35 by gfantoni         ###   ########.fr       */
+/*   Updated: 2023/11/21 14:21:10 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int32_t	main(int32_t argc, const char **argv)
 {
 	t_fractal		fractal;
-	
+
 	if (ft_check_error(argc, argv, &fractal))
 	{
 		puts("usage: ./fractol_bonus mandelbrot");
@@ -25,7 +25,6 @@ int32_t	main(int32_t argc, const char **argv)
 	}
 	if (ft_render(&fractal, argv[1]))
 		return (EXIT_FAILURE);
-	ft_fractal_init(&fractal);
 	if (!ft_strcmp(argv[1], "sierpinsky"))
 	{
 		mlx_loop_hook(fractal.mlx, ft_classic_artist, &fractal);

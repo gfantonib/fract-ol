@@ -6,12 +6,12 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 15:25:58 by gfantoni          #+#    #+#             */
-/*   Updated: 2023/11/21 13:07:45 by gfantoni         ###   ########.fr       */
+/*   Updated: 2023/11/21 16:06:41 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACTOL_H
-# define FRACTOL_H
+#ifndef BONUS_FRACTOL_H
+# define BONUS_FRACTOL_H
 
 # include "../includes/MLX42/include/MLX42/MLX42.h"
 # include <stdio.h>
@@ -21,7 +21,7 @@
 # define STEP 100
 # define MARGIN 0.03
 
-typedef struct	s_point
+typedef struct s_point
 {
 	int		x;
 	int		y;
@@ -29,9 +29,9 @@ typedef struct	s_point
 
 typedef struct s_sierpinsky
 {
-	t_point a;
-	t_point b;
-	t_point c;
+	t_point	a;
+	t_point	b;
+	t_point	c;
 }		t_sierpinsky;
 
 typedef struct s_complex
@@ -73,10 +73,9 @@ int			ft_check_error(int argc, const char **argv, t_fractal *fractal);
 int			ft_render(t_fractal *fractal, const char *name);
 
 // bonus_sources/inits_bonus.c
-void		ft_fractal_init(t_fractal *fractal);
-void		mandelbrot_init(t_fractal *fractal, mlx_t *mlx, mlx_image_t *canvas);
+void		mandelbrot_init(t_fractal *fr, mlx_t *mlx, mlx_image_t *canvas);
 void		julia_init(t_fractal *fractal, mlx_t *mlx, mlx_image_t *canvas);
-void		sierpinsky_init(t_fractal *fractal, mlx_t *mlx, mlx_image_t *canvas);
+void		sierpinsky_init(t_fractal *fr, mlx_t *mlx, mlx_image_t *canvas);
 
 // bonus_sources/artists_bonus.c
 void		ft_artist(void *param);
@@ -89,7 +88,7 @@ uint32_t	ft_julia(t_fractal *fractal, t_complex *pixel);
 // bonus_sources/hooks_bonus.c
 void		ft_zoom(double xdelta, double ydelta, void *param);
 void		ft_joystick(void *param);
-void 		ft_pinsky_zoom(double xdelta, double ydelta, void *param);
+void		ft_pinsky_zoom(double xdelta, double ydelta, void *param);
 
 // bonus_sources/utils_1_bonus.c
 int			ft_strcmp(const char *s1, const char *s2);
@@ -103,6 +102,7 @@ void		ft_swapp(t_fractal *fractal);
 int			ft_point_validation(t_point a);
 
 // bonus_sources/sierpinsky_bonus.c
-void 		ft_sierpinsky(t_point a, t_point b, t_point c, int n, t_fractal *fractal);
+// void		ft_sierpinsky(t_point a, t_point b, t_point c, int n, t_fractal *fr);
+void		ft_sierpinsky(t_point abc[], int n, t_fractal *fr);
 
 #endif

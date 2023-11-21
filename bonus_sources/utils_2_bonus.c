@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 13:03:30 by gfantoni          #+#    #+#             */
-/*   Updated: 2023/11/21 13:05:28 by gfantoni         ###   ########.fr       */
+/*   Updated: 2023/11/21 14:33:52 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,10 @@ void	ft_swapp(t_fractal *fractal)
 
 int	ft_point_validation(t_point a)
 {
-	return (a.x < MARGIN * SIZE || a.x > SIZE - MARGIN * SIZE || a.y < MARGIN * SIZE || a.y > SIZE - MARGIN * SIZE);
+	return (
+		a.x < MARGIN * SIZE || 
+		a.x > SIZE - MARGIN * SIZE || 
+		a.y < MARGIN * SIZE || 
+		a.y > SIZE - MARGIN * SIZE
+	);
 }

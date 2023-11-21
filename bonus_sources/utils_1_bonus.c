@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 12:36:52 by gfantoni          #+#    #+#             */
-/*   Updated: 2023/11/21 13:05:32 by gfantoni         ###   ########.fr       */
+/*   Updated: 2023/11/21 14:28:27 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,3 @@ uint32_t	ft_bernstein_poly(uint32_t n, t_fractal *fractal)
 	color = ft_pixel(poly[ch.r], poly[ch.g], poly[ch.b], 255);
 	return (color);
 }
-
