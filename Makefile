@@ -2,9 +2,12 @@ NAME		:= fractol
 BONUS_NAME 	:= fractol_bonus
 
 CFLAGS	:= -Ofast -Wextra -Wall -Werror -Wunreachable-code 
-LIBMLX	:= ./libraries/MLX42
+LIBMLX	:= ./includes/MLX42
 
 HEADERS	:= -I $(LIBMLX)/include
+
+#BONUS_HEADER	:= -I $(LIBMLX)/include
+
 LIBS	:= $(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -lm
 
 SRCS	:= \
@@ -54,5 +57,6 @@ fclean: clean
 	@rm -rf $(NAME) $(BONUS_NAME)
 
 re: fclean all
+bonus_re: fclean bonus
 
 .PHONY: all clean fclean re libmlx

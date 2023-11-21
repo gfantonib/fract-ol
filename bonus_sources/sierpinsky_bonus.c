@@ -1,4 +1,4 @@
-#include "../includes/fractol.h"
+#include "../includes/bonus_fractol.h"
 
 void	ft_bresenham(t_point a, t_point b, t_fractal *fractal)
 {

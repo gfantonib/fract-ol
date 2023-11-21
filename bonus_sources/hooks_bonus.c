@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hooks.c                                            :+:      :+:    :+:   */
+/*   hooks_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 12:37:45 by gfantoni          #+#    #+#             */
-/*   Updated: 2023/11/17 09:41:55 by gfantoni         ###   ########.fr       */
+/*   Updated: 2023/11/20 15:31:17 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fractol.h"
+#include "../includes/bonus_fractol.h"
 
 #include <stdint.h>
 
@@ -22,6 +22,7 @@ void	ft_zoom(double xdelta, double ydelta, void *param)
 	int32_t		width;
 	int32_t		height;
 
+	xdelta = 0;
 	fractal = param;
 	mlx_get_mouse_pos(fractal->mlx, &width, &height);
 	ft_trans(&c, fractal, width, height);

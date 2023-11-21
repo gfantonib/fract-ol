@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sets.c                                             :+:      :+:    :+:   */
+/*   sets_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 12:35:25 by gfantoni          #+#    #+#             */
-/*   Updated: 2023/11/17 09:42:15 by gfantoni         ###   ########.fr       */
+/*   Updated: 2023/11/20 15:28:41 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fractol.h"
+#include "../includes/bonus_fractol.h"
 
 uint32_t	ft_mandelbrot(t_fractal *fractal, t_complex *c)
 {

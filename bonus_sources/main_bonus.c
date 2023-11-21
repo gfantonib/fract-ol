@@ -6,11 +6,11 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 12:26:50 by gfantoni          #+#    #+#             */
-/*   Updated: 2023/11/17 14:49:07 by gfantoni         ###   ########.fr       */
+/*   Updated: 2023/11/20 16:13:01 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fractol.h"
+#include "../includes/bonus_fractol.h"
 
 void	ft_classic_artist(void *param)
 {
@@ -67,7 +67,7 @@ int32_t	main(int32_t argc, const char **argv)
 	if (error)
 		return (EXIT_FAILURE);
 	
-	if (!ft_strncmp(argv[1], "sierpinsky", 10))
+	if (!ft_strcmp(argv[1], "sierpinsky"))
 		mlx_loop_hook(fractal.mlx, ft_classic_artist, &fractal);
 	else
 		mlx_loop_hook(fractal.mlx, ft_artist, &fractal);

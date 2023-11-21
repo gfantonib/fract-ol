@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.h                                          :+:      :+:    :+:   */
+/*   bonus_fractol.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/10 12:27:44 by gfantoni          #+#    #+#             */
-/*   Updated: 2023/11/20 15:26:27 by gfantoni         ###   ########.fr       */
+/*   Created: 2023/11/20 15:25:58 by gfantoni          #+#    #+#             */
+/*   Updated: 2023/11/20 15:27:22 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,5 +80,10 @@ int32_t		ft_pixel(int32_t r, int32_t g, int32_t b, int32_t a);
 void		ft_zoom(double xdelta, double ydelta, void *param);
 void		ft_joystick(void *param);
 void		ft_swapp(t_fractal *fractal);
+
+//--------------------------------------BONUS--------------------------------------------------------------
+
+void		sierpinsky_init(t_fractal *fractal, mlx_t *mlx, mlx_image_t *canvas);
+void 		ft_sierpinsky(t_point a, t_point b, t_point c, int n, t_fractal *fractal);
 
 #endif
