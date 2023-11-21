@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 15:25:58 by gfantoni          #+#    #+#             */
-/*   Updated: 2023/11/20 15:27:22 by gfantoni         ###   ########.fr       */
+/*   Updated: 2023/11/21 11:07:14 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <stdbool.h>
 # define SIZE 800
 # define STEP 100
+# define MARGIN 0.03
 
 typedef struct	s_point
 {
@@ -85,5 +86,7 @@ void		ft_swapp(t_fractal *fractal);
 
 void		sierpinsky_init(t_fractal *fractal, mlx_t *mlx, mlx_image_t *canvas);
 void 		ft_sierpinsky(t_point a, t_point b, t_point c, int n, t_fractal *fractal);
+void 		ft_pinsky_zoom(double xdelta, double ydelta, void *param);
+int			ft_point_validation(t_point a);
 
 #endif

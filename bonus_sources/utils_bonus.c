@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 12:36:52 by gfantoni          #+#    #+#             */
-/*   Updated: 2023/11/20 16:39:39 by gfantoni         ###   ########.fr       */
+/*   Updated: 2023/11/21 11:00:00 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,4 +80,9 @@ int	ft_strcmp(const char *s1, const char *s2)
 		z++;
 	}
 	return (0);
+}
+
+int	ft_point_validation(t_point a)
+{
+	return (a.x < MARGIN * SIZE || a.x > SIZE - MARGIN * SIZE || a.y < MARGIN * SIZE || a.y > SIZE - MARGIN * SIZE);
 }

@@ -33,7 +33,11 @@ void	ft_bresenham(t_point a, t_point b, t_fractal *fractal)
 				dis = dis + 2*(abs(dy) - abs(dx));
 			}
 			i++;
-			mlx_put_pixel(fractal->canvas, a.x, a.y, color);
+			if (!ft_point_validation(a))
+			{
+				printf("x=%d, y=%d\n", a.x, a.y);
+            	mlx_put_pixel(fractal->canvas, a.x, a.y, color);
+			}
 		}
 	}
 	else
@@ -56,7 +60,11 @@ void	ft_bresenham(t_point a, t_point b, t_fractal *fractal)
 				dis = dis + 2*(abs(dx) - abs(dy));
 			}
 			i++;
-			mlx_put_pixel(fractal->canvas, a.x, a.y, color);
+			if (!ft_point_validation(a))
+			{
+				printf("x=%d, y=%d\n", a.x, a.y);
+            	mlx_put_pixel(fractal->canvas, a.x, a.y, color);
+			}
 		}
 		
 	}

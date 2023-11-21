@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 12:31:59 by gfantoni          #+#    #+#             */
-/*   Updated: 2023/11/20 15:28:28 by gfantoni         ###   ########.fr       */
+/*   Updated: 2023/11/21 11:03:31 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,21 +50,21 @@ void	sierpinsky_init(t_fractal *fractal, mlx_t *mlx, mlx_image_t *canvas)
 	fractal->name = "sierpinsky";
 	//fractal->f = ft_sierpinsky;
 	fractal->iter_max = 7;
-	fractal->axis_len = SIZE;
-	fractal->trans = fractal->axis_len / SIZE;
-	fractal->limit.real = 0.0;
-	fractal->limit.i = 0.0;
+	//fractal->axis_len = SIZE;
+	//fractal->trans = fractal->axis_len / SIZE;
+	//fractal->limit.real = 0.0;
+	//fractal->limit.i = 0.0;
 	fractal->mlx = mlx;
 	fractal->canvas = canvas;
 	
 	fractal->pinsky.a.x = SIZE / 2;
-	fractal->pinsky.a.y = 25;
+	fractal->pinsky.a.y = MARGIN * SIZE;
 
-	fractal->pinsky.b.x = 25;
-	fractal->pinsky.b.y = SIZE - 25;
+	fractal->pinsky.b.x = MARGIN * SIZE;
+	fractal->pinsky.b.y = SIZE - MARGIN * SIZE;
 
-	fractal->pinsky.c.x = SIZE - 25;
-	fractal->pinsky.c.y = SIZE - 25;
+	fractal->pinsky.c.x = SIZE - MARGIN * SIZE;
+	fractal->pinsky.c.y = SIZE - MARGIN * SIZE;
 	// fractal->ch.r = 0;
 	// fractal->ch.g = 1;
 	// fractal->ch.b = 2;

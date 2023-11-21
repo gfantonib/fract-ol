@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 12:37:45 by gfantoni          #+#    #+#             */
-/*   Updated: 2023/11/20 15:31:17 by gfantoni         ###   ########.fr       */
+/*   Updated: 2023/11/21 11:06:31 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,3 +61,44 @@ void	ft_joystick(void *param)
 	if (mlx_is_key_down(fractal->mlx, MLX_KEY_RIGHT))
 		fractal->limit.real += fractal->trans * STEP;
 }
+
+void ft_pinsky_zoom(double xdelta, double ydelta, void *param)
+{
+	t_fractal	*fr;
+	int32_t		width;
+	int32_t		height;
+	
+	xdelta = 0;
+	fr = param;
+	mlx_get_mouse_pos(fr->mlx, &width, &height);
+	if (ydelta > 0)
+	{
+		// if (fr->z < 1)
+		// 	fr->z = 1;
+		// fr->z *= 1.1;
+		fr->pinsky.a.x -= (width - fr->pinsky.a.x) / 10;
+		fr->pinsky.a.y -= (height - fr->pinsky.a.y) / 10;
+		fr->pinsky.b.x -= (width - fr->pinsky.b.x) / 10;
+		fr->pinsky.b.y -= (height - fr->pinsky.b.y) / 10;
+		fr->pinsky.c.x -= (width - fr->pinsky.c.x) / 10;
+		fr->pinsky.c.y -= (height - fr->pinsky.c.y) / 10;
+	}
+	else if (ydelta < 0)
+	{
+		// if (fr->z > 1)
+		// 	fr->z = 1;
+		// fr->z *= 0.9;
+		fr->pinsky.a.x += (width - fr->pinsky.a.x) / 10;
+		fr->pinsky.a.y += (height - fr->pinsky.a.y) / 10;
+		fr->pinsky.b.x += (width - fr->pinsky.b.x) / 10;
+		fr->pinsky.b.y += (height - fr->pinsky.b.y) / 10;
+		fr->pinsky.c.x += (width - fr->pinsky.c.x) / 10;
+		fr->pinsky.c.y += (height - fr->pinsky.c.y) / 10;
+	}
+	mlx_delete_image(fr->mlx, fr->canvas);
+	fr->canvas = mlx_new_image(fr->mlx, SIZE, SIZE);
+	mlx_image_to_window(fr->mlx, fr->canvas, 0, 0);
+}
+	
+	
+	
