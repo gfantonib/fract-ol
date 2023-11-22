@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 10:12:48 by gfantoni          #+#    #+#             */
-/*   Updated: 2023/11/22 16:06:36 by gfantoni         ###   ########.fr       */
+/*   Updated: 2023/11/22 16:47:48 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,9 +103,9 @@ typedef struct s_fractal
 
 // SOURCES/CHECK_ERROR.C
 
-// @brief validate The parameters placed in command line.
+// @brief Validate the parameters placed in command line.
 // @param argc Number of parameters.
-// @param argv Double pointer to parameters.
+// @param **argv Double pointer to parameters.
 // @param fractal Pointer to object.
 int			ft_check_error(int argc, const char **argv, t_fractal *fractal);
 // -----------------------------------------------------------------------------
