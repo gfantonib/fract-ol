@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 12:36:52 by gfantoni          #+#    #+#             */
-/*   Updated: 2023/11/21 14:28:27 by gfantoni         ###   ########.fr       */
+/*   Updated: 2023/11/22 14:00:22 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,19 @@ int	ft_strcmp(const char *s1, const char *s2)
 		z++;
 	}
 	return (0);
+}
+
+void	ft_putstr(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		write(1, &str[i], 1);
+		i++;
+	}
+	write(1, "\n", 1);
 }
 
 int32_t	ft_pixel(int32_t r, int32_t g, int32_t b, int32_t a)

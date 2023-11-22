@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 10:12:32 by gfantoni          #+#    #+#             */
-/*   Updated: 2023/11/22 13:21:35 by gfantoni         ###   ########.fr       */
+/*   Updated: 2023/11/22 13:55:55 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,39 +14,74 @@
 # define FRACTOL_H
 
 # include "../includes/MLX42/include/MLX42/MLX42.h"
-# include <stdio.h>
 # include <stdlib.h>
+# include <unistd.h>
 # include <stdbool.h>
 # define SIZE 800
 # define STEP 100
 # define MARGIN 0.03
 
+// @brief Store the value of two int, the x and y coordinates.
+// @param x int x;
+// @param y int y;
 typedef struct s_point
 {
 	int		x;
 	int		y;
 }	t_point;
+// -----------------------------------------------------------------------------
 
+// @brief Store the value of three points, abc.
+// @param a t_point a;
+// @param b t_point b;
+// @param c t_point c;
 typedef struct s_sierpinsky
 {
 	t_point	a;
 	t_point	b;
 	t_point	c;
 }		t_sierpinsky;
+// -----------------------------------------------------------------------------
 
+// @brief Store the value of two doubles, real and i;
+// @param real double real;
+// @param i double i;
 typedef struct s_complex
 {
 	double		real;
 	double		i;
 }		t_complex;
+// -----------------------------------------------------------------------------
 
+// @brief Store the value of three uint32_t, rgb.
+// @param real double real;
+// @param r uint32_t r;
+// @param g uint32_t g;
+// @param b uint32_t b;
 typedef struct s_channel
 {
 	uint32_t	r;
 	uint32_t	g;
 	uint32_t	b;
 }	t_channel;
+// -----------------------------------------------------------------------------
 
+// @brief Store the value of several item needed to be loaded everywhere.
+// @param name const char *name;
+// @param *mlx mlx_t *mlx;
+// @param *canvas mlx_image_t *canvas;
+// @param function void (*init)(struct s_fractal *fractal, 
+// mlx_t *mlx, mlx_image_t *canvas);
+// @param function unsigned int (*f)(struct s_fractal *fractal, t_complex *c);
+// @param iter_max uint32_t iter_max;
+// @param axis_len double axis_len;
+// @param trans double trans;
+// @param limit t_complex	limit;
+// @param julia_r double julia_r;
+// @param julia_i double julia_i;
+// @param julia_c char julia_c;
+// @param ch t_channel ch;
+// @param pinsk t_sierpinsky pinsky;
 typedef struct s_fractal
 {
 	const char			*name;
@@ -65,6 +100,7 @@ typedef struct s_fractal
 	t_channel			ch;
 	t_sierpinsky		pinsky;
 }	t_fractal;
+// -----------------------------------------------------------------------------
 
 // SOURCES/CHECK_ERROR.C
 
@@ -156,6 +192,7 @@ void		ft_pinsky_zoom(double xdelta, double ydelta, void *param);
 // SOURCES/UTILS_1.C
 
 int			ft_strcmp(const char *s1, const char *s2);
+void		ft_putstr(char *str);
 int32_t		ft_pixel(int32_t r, int32_t g, int32_t b, int32_t a);
 
 // @brief Transform the coordinates of the pixel realm to the imaginary realm.

@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 12:34:51 by gfantoni          #+#    #+#             */
-/*   Updated: 2023/11/21 14:21:01 by gfantoni         ###   ########.fr       */
+/*   Updated: 2023/11/22 14:02:58 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,21 @@ int	ft_render(t_fractal *fractal, const char *name)
 	fractal->mlx = mlx_init(SIZE, SIZE, name, true);
 	if (!fractal->mlx)
 	{
-		puts(mlx_strerror(mlx_errno));
+		ft_putstr("MLX ERROR");
 		return (1);
 	}
 	fractal->canvas = mlx_new_image(fractal->mlx, SIZE, SIZE);
 	if (!fractal->canvas)
 	{
 		mlx_close_window(fractal->mlx);
-		puts(mlx_strerror(mlx_errno));
+		ft_putstr("MLX ERROR");
 		return (1);
 	}
 	error = mlx_image_to_window(fractal->mlx, fractal->canvas, 0, 0);
 	if (error == -1)
 	{
 		mlx_close_window(fractal->mlx);
-		puts(mlx_strerror(mlx_errno));
+		ft_putstr("MLX ERROR");
 		return (1);
 	}
 	fractal->init(fractal, fractal->mlx, fractal->canvas);
