@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 10:12:48 by gfantoni          #+#    #+#             */
-/*   Updated: 2023/11/22 14:09:01 by gfantoni         ###   ########.fr       */
+/*   Updated: 2023/11/22 16:06:36 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include "../includes/MLX42/include/MLX42/MLX42.h"
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdbool.h>
 # define SIZE 800
 # define STEP 100
 # define MARGIN 0.03
