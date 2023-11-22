@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 12:31:59 by gfantoni          #+#    #+#             */
-/*   Updated: 2023/11/21 19:10:46 by gfantoni         ###   ########.fr       */
+/*   Updated: 2023/11/22 10:34:31 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	mandelbrot_init(t_fractal *fractal, mlx_t *mlx, mlx_image_t *canvas)
 {
 	fractal->name = "mandelbrot";
 	fractal->f = ft_mandelbrot;
-	fractal->iter_max = 1000;
+	fractal->iter_max = 100;
 	fractal->axis_len = 4.0;
 	fractal->trans = fractal->axis_len / SIZE;
 	fractal->limit.real = 0.0 - fractal->axis_len / 2.0;

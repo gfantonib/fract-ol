@@ -7,13 +7,17 @@ HEADERS	:= -I $(LIBMLX)/include
 LIBS	:= $(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -lm
 
 SRCS	:= \
-		./sources/main.c \
-		./sources/utils.c \
-		./sources/inits.c \
-		./sources/sets.c \
-		./sources/hooks.c \
-		./sources/check_error.c \
-		./sources/render.c \
+			./sources/main.c \
+			./sources/utils_1.c \
+			./sources/utils_2.c \
+			./sources/inits.c \
+			./sources/sets.c \
+			./sources/hooks.c \
+			./sources/check_error.c \
+			./sources/render.c \
+			./sources/sierpinsky.c \
+			./sources/artists.c \
+			./sources/bresenham.c
 
 BONUS_SRCS	:= \
 			./bonus_sources/main_bonus.c \

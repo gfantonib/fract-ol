@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/10 12:33:08 by gfantoni          #+#    #+#             */
-/*   Updated: 2023/11/20 14:54:33 by gfantoni         ###   ########.fr       */
+/*   Created: 2023/11/22 10:09:18 by gfantoni          #+#    #+#             */
+/*   Updated: 2023/11/22 10:13:23 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,11 @@ int	ft_check_error(int argc, const char **argv, t_fractal *fractal)
 	{
 		fractal->julia_c = 'S';
 		fractal->init = julia_init;
+		return (0);
+	}
+	else if (argc == 2 && !ft_strcmp(argv[1], "sierpinsky"))
+	{
+		fractal->init = sierpinsky_init;
 		return (0);
 	}
 	if (argc == 3 && !ft_strcmp(argv[1], "julia") && 
