@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 12:36:52 by gfantoni          #+#    #+#             */
-/*   Updated: 2023/11/24 19:15:48 by gfantoni         ###   ########.fr       */
+/*   Updated: 2023/11/24 19:19:19 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,17 +63,5 @@ uint32_t	ft_bernstein_poly(uint32_t n, t_fractal *fractal)
 	poly[1] = 255 * 17.0 * t * t * (1 - t) * (1 - t);
 	poly[2] = 255 * 12.0 * t * t * t * (1 - t);
 	color = ft_pixel(poly[ch.r], poly[ch.g], poly[ch.b], 255);
-	return (color);
-}
-
-uint32_t	ft_bernstein_pinsky(double t)
-{
-	int32_t		color;
-	int32_t		poly[3];
-
-	poly[0] = 255 * 9.0 * t * (1 - t) * (1 - t) * (1 - t);
-	poly[1] = 255 * 17.0 * t * t * (1 - t) * (1 - t);
-	poly[2] = 255 * 12.0 * t * t * t * (1 - t);
-	color = ft_pixel(poly[0], poly[1], poly[2], 255);
 	return (color);
 }

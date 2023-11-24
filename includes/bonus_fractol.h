@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 10:12:48 by gfantoni          #+#    #+#             */
-/*   Updated: 2023/11/24 19:16:13 by gfantoni         ###   ########.fr       */
+/*   Updated: 2023/11/24 19:18:46 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -248,8 +248,8 @@ void		ft_sierpinsky(t_point abc[], int n, t_fractal *fr);
 // @param *fractal Pointer to object.
 void		ft_bresenham(t_point a, t_point b, t_fractal *fractal);
 
-void	ft_joystick_pinsky(void *param);
-void	ft_mlx_update(t_fractal *fr);
+void		ft_joystick_pinsky(void *param);
+void		ft_mlx_update(t_fractal *fr);
 uint32_t	ft_bernstein_pinsky(double t);
 // -----------------------------------------------------------------------------
 
