@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 10:12:48 by gfantoni          #+#    #+#             */
-/*   Updated: 2023/11/22 16:47:48 by gfantoni         ###   ########.fr       */
+/*   Updated: 2023/11/24 19:16:13 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,10 @@
 # include "../includes/MLX42/include/MLX42/MLX42.h"
 # include <stdlib.h>
 # include <unistd.h>
+# include <math.h>
 # define SIZE 800
 # define STEP 100
+# define STEP_P 40
 # define MARGIN 0.03
 
 // @brief Store the value of two int, the x and y coordinates.
@@ -98,6 +100,7 @@ typedef struct s_fractal
 	char				julia_c;
 	t_channel			ch;
 	t_sierpinsky		pinsky;
+	int					decider;
 }	t_fractal;
 // -----------------------------------------------------------------------------
 
@@ -244,6 +247,10 @@ void		ft_sierpinsky(t_point abc[], int n, t_fractal *fr);
 // @param b End point.
 // @param *fractal Pointer to object.
 void		ft_bresenham(t_point a, t_point b, t_fractal *fractal);
+
+void	ft_joystick_pinsky(void *param);
+void	ft_mlx_update(t_fractal *fr);
+uint32_t	ft_bernstein_pinsky(double t);
 // -----------------------------------------------------------------------------
 
 #endif

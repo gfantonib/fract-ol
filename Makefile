@@ -30,7 +30,8 @@ BONUS_SRCS	:= \
 			./bonus_sources/render_bonus.c \
 			./bonus_sources/sierpinsky_bonus.c \
 			./bonus_sources/artists_bonus.c \
-			./bonus_sources/bresenham_bonus.c
+			./bonus_sources/bresenham_bonus.c \
+			./bonus_sources/joystick_pinsky_bonus.c
 		
 OBJS	:= $(SRCS:%.c=%.o)
 

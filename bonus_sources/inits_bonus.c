@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 12:31:59 by gfantoni          #+#    #+#             */
-/*   Updated: 2023/11/22 10:34:31 by gfantoni         ###   ########.fr       */
+/*   Updated: 2023/11/24 18:21:34 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void	sierpinsky_init(t_fractal *fractal, mlx_t *mlx, mlx_image_t *canvas)
 {
 	fractal->name = "sierpinsky";
 	fractal->iter_max = 9;
+	fractal->decider = 1;
 	fractal->mlx = mlx;
 	fractal->canvas = canvas;
 	fractal->pinsky.a.x = SIZE / 2;
@@ -57,4 +58,7 @@ void	sierpinsky_init(t_fractal *fractal, mlx_t *mlx, mlx_image_t *canvas)
 	fractal->pinsky.b.y = SIZE - MARGIN * SIZE;
 	fractal->pinsky.c.x = SIZE - MARGIN * SIZE;
 	fractal->pinsky.c.y = SIZE - MARGIN * SIZE;
+	fractal->ch.r = 0;
+	fractal->ch.g = 1;
+	fractal->ch.b = 2;
 }
