@@ -5,48 +5,59 @@ CFLAGS	:= -Ofast -Wextra -Wall -Werror -Wunreachable-code
 LIBMLX	:= ./includes/MLX42
 HEADERS	:= -I $(LIBMLX)/include
 LIBS	:= $(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -lm
+MK = mkdir -p
+
+SOURCE_PATH = sources/
+BONUS_SOURCE_PATH = bonus_sources/
 
 SRCS	:= \
-			./sources/main.c \
-			./sources/utils_1.c \
-			./sources/utils_2.c \
-			./sources/inits.c \
-			./sources/sets.c \
-			./sources/hooks.c \
-			./sources/check_error.c \
-			./sources/render.c \
-			./sources/sierpinsky.c \
-			./sources/artists.c \
-			./sources/bresenham.c
+			main.c \
+			utils_1.c \
+			utils_2.c \
+			inits.c \
+			sets.c \
+			hooks.c \
+			check_error.c \
+			render.c \
+			sierpinsky.c \
+			artists.c \
+			bresenham.c
 
 BONUS_SRCS	:= \
-			./bonus_sources/main_bonus.c \
-			./bonus_sources/utils_1_bonus.c \
-			./bonus_sources/utils_2_bonus.c \
-			./bonus_sources/inits_bonus.c \
-			./bonus_sources/sets_bonus.c \
-			./bonus_sources/hooks_bonus.c \
-			./bonus_sources/check_error_bonus.c \
-			./bonus_sources/render_bonus.c \
-			./bonus_sources/sierpinsky_bonus.c \
-			./bonus_sources/artists_bonus.c \
-			./bonus_sources/bresenham_bonus.c \
-			./bonus_sources/joystick_pinsky_bonus.c
-		
-OBJS	:= $(SRCS:%.c=%.o)
+			main_bonus.c \
+			utils_1_bonus.c \
+			utils_2_bonus.c \
+			inits_bonus.c \
+			sets_bonus.c \
+			hooks_bonus.c \
+			check_error_bonus.c \
+			render_bonus.c \
+			sierpinsky_bonus.c \
+			artists_bonus.c \
+			bresenham_bonus.c \
+			joystick_pinsky_bonus.c
 
-BONUS_OBJS := $(BONUS_SRCS:%.c=%.o)
+OBJECTS_PATH = objects
+OBJS	:= $(addprefix $(OBJECTS_PATH)/, $(SRCS:%.c=%.o))
+
+BONUS_OBJECTS_PATH = bonus_objects
+BONUS_OBJS := $(addprefix $(BONUS_OBJECTS_PATH)/, $(BONUS_SRCS:%.c=%.o))
 
 all: libmlx $(NAME)
 
 libmlx:
 	@cmake $(LIBMLX) -B $(LIBMLX)/build && make -C $(LIBMLX)/build -j4
 
-%.o: %.c
-	@$(CC) $(CFLAGS) -o $@ -c $< $(HEADERS) && printf "Compiling: $(notdir $<)"
+$(OBJECTS_PATH)/%.o: $(SOURCE_PATH)%.c
+	@$(MK) $(@D)
+	@$(CC) $(CFLAGS) -o $@ -c $< $(HEADERS) && printf "Compiling: $(notdir $<) "
 
 $(NAME): $(OBJS)
 	@$(CC) $(OBJS) $(LIBS) $(HEADERS) -o $(NAME)
+
+$(BONUS_OBJECTS_PATH)/%.o: $(BONUS_SOURCE_PATH)%.c
+	@$(MK) $(@D)
+	@$(CC) $(CFLAGS) -o $@ -c $< $(HEADERS) && printf "Compiling: $(notdir $<) "
 
 $(BONUS_NAME): $(BONUS_OBJS)
 	@$(CC) $(BONUS_OBJS) $(LIBS) $(HEADERS) -o $(BONUS_NAME)
@@ -58,7 +69,7 @@ clean:
 	@rm -rf $(LIBMLX)/build
 
 fclean: clean
-	@rm -rf $(NAME) $(BONUS_NAME)
+	@rm -rf $(NAME) $(BONUS_NAME) $(OBJECTS_PATH) $(BONUS_OBJECTS_PATH)
 
 re: fclean all
 

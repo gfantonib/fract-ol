@@ -6,7 +6,7 @@
 /*   By: gfantoni <gfantoni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 10:09:27 by gfantoni          #+#    #+#             */
-/*   Updated: 2023/11/22 10:13:27 by gfantoni         ###   ########.fr       */
+/*   Updated: 2023/11/27 13:04:01 by gfantoni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,13 +53,13 @@ void	ft_joystick(void *param)
 	if (mlx_is_key_down(fractal->mlx, MLX_KEY_ESCAPE))
 		mlx_close_window(fractal->mlx);
 	if (mlx_is_key_down(fractal->mlx, MLX_KEY_UP))
-		fractal->limit.i += fractal->trans * STEP;
-	if (mlx_is_key_down(fractal->mlx, MLX_KEY_DOWN))
 		fractal->limit.i -= fractal->trans * STEP;
+	if (mlx_is_key_down(fractal->mlx, MLX_KEY_DOWN))
+		fractal->limit.i += fractal->trans * STEP;
 	if (mlx_is_key_down(fractal->mlx, MLX_KEY_LEFT))
-		fractal->limit.real -= fractal->trans * STEP;
-	if (mlx_is_key_down(fractal->mlx, MLX_KEY_RIGHT))
 		fractal->limit.real += fractal->trans * STEP;
+	if (mlx_is_key_down(fractal->mlx, MLX_KEY_RIGHT))
+		fractal->limit.real -= fractal->trans * STEP;
 }
 
 void	ft_scroll_in(t_fractal *fr, int32_t width, int32_t height)
