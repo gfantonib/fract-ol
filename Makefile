@@ -66,10 +66,11 @@ bonus: libmlx $(BONUS_NAME)
 
 clean:
 	@rm -rf $(OBJS) $(BONUS_OBJS)
-	@rm -rf $(LIBMLX)/build
+	@rm -rf $(LIBMLX)/build 
+	@rm -rf $(OBJECTS_PATH) 
 
 fclean: clean
-	@rm -rf $(NAME) $(BONUS_NAME) $(OBJECTS_PATH) $(BONUS_OBJECTS_PATH)
+	@rm -rf $(NAME) $(BONUS_NAME) $(BONUS_OBJECTS_PATH)
 
 re: fclean all
 
