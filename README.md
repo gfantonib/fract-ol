@@ -1,4 +1,9 @@
-# fract-ol
+# 42_fract-ol
+
+<div align="center">
+  <img src="image/fractol.png" alt="Fractol">
+</div>
+
 <img class="aligncenter size-large wp-image-3831 img-responsive" 
 src="https://www2.ufjf.br/fractalize/wp-content/uploads/sites/229/2021/03/I1P3-e1620060325694-768x405.jpg" 
 title="Benoît B. Mandelbrot" 
