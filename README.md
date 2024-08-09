@@ -1,14 +1,19 @@
 # 42_fract-ol
 
-<div align="center">
-  <img src="image/fractol.png" alt="Fractol">
-</div>
+The Mandelbrot set is a two-dimensional set with a relatively simple definition that exhibits great complexity, especially as it is magnified. It is popular for its aesthetic appeal and fractal structures. The set is defined in the complex plane as the complex numbers \( c \) for which the function
 
-<img class="aligncenter size-large wp-image-3831 img-responsive" 
-src="https://www2.ufjf.br/fractalize/wp-content/uploads/sites/229/2021/03/I1P3-e1620060325694-768x405.jpg" 
-title="Benoît B. Mandelbrot" 
-width="1024" 
-height="513">
+$$
+f_c(z) = z^2 + c
+$$
+
+does not diverge to infinity when iterated starting at \( z = 0 \), i.e., for which the sequence
+
+$$
+f_c(0), \, f_c(f_c(0)), \, \text{etc.}
+$$
+
+remains bounded in absolute value.
+
 
 The term fractal was first used by mathematician Benoit Mandelbrot in 1974. He based
 it on the Latin word fractus which means "broken" or "fractured".
@@ -16,11 +21,19 @@ A fractal is an abstract mathematical object, like a curve or a surface, which p
 remains the same at every scale.
 Various natural phenomena – like the romanesco cabbage – have some fractal features.
 
-Now, it’s your turn to generate some magnificent fractals!
+This graphic C project is about transforming the domain of computer pixels into the domain of complex numbers. Once this transformation is well established, the program determines, for each point in the complex space, whether it is part of the Mandelbrot set or not. For each point, based on how many times it was iterated in the Mandelbrot formula, there is a specific color assigned. This difference establishes the beautiful and psychedelic effects that you can see below.
 
-This will be the opportunity for you to get familiar with the MiniLibX, to discover
-or use the mathematical notion of complex numbers, to take a peek at the concept of
-optimization in computer graphics and practice event handling.
+<div align="center">
+  <img src="image/set1.jpg" alt="image1" style="max-width: 21%; height: auto;">
+</div>
+
+<br>
+<br>
+
+<div align="center">
+  <img src="image/set2.jpg" alt="image2" style="max-width: 100%; height: auto;">
+</div>
+
 
 ## References
 ### fractol: beautiful fractals using the minilibX in C (mandelbrot and julia set, no bonus)
