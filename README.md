@@ -7,7 +7,7 @@ $$ f_c(z) = z^2 + c $$
 does not diverge to infinity when iterated starting at \( z = 0 \), i.e., for which the sequence
 
 $$
-f_c(0), \, f_c(f_c(0)), \, \text{etc.}
+f_c(0), \ f_c(f_c(0)), \ \text{etc.}
 $$
 
 remains bounded in absolute value.
